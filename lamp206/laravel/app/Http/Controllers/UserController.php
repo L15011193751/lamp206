@@ -27,7 +27,7 @@ class UserController extends Controller
     public function create()
     {
         //
-		echo '11';
+		echo'wwoo';
     }
 
     /**
