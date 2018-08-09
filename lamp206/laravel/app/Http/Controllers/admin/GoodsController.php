@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\admin;
 
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-class UserController extends Controller
+class GoodsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +16,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        echo '22343546';
+        //
     }
 
     /**
@@ -27,7 +27,6 @@ class UserController extends Controller
     public function create()
     {
         //
-		echo'wwoo';
     }
 
     /**
