@@ -16,10 +16,26 @@ Route::get('/', function () {
 });
 
 
-// 前台
 
 
-//后台
 
 
-///
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// 商品浏览
+Route::resource('/admin/goods','Admin\GoodsController');
