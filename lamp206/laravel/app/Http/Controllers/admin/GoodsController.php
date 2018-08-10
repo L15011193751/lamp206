@@ -15,11 +15,17 @@ class GoodsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
+<<<<<<< HEAD
     {   
         // 获取全部商品
         $data = Goods::all();
         // dd($data);
         return view('goods.index',['data' => $data]);
+=======
+    {
+        //
+		echo '111';
+>>>>>>> 6c86c03b278c42d42ca57cf32f14c3ea7d14799f
     }
 
     /**
