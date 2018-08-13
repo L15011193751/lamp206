@@ -18,7 +18,6 @@ Route::get('/', function () {
 //后台首页
 Route::get('/admin','Admin\IndexController@index');
 
-<<<<<<< HEAD
 
 
 
@@ -30,6 +29,7 @@ Route::get('/admin','Admin\IndexController@index');
 
 
 
+Route::resource('admin/cate','admin\CatesController');
 
 
 
@@ -42,7 +42,8 @@ Route::get('/admin','Admin\IndexController@index');
 
 // 商品浏览
 Route::resource('/admin/goods','Admin\GoodsController');
-=======
+
+
 //后台用户路由
 Route::resource('/admin/user','Admin\UserController');
->>>>>>> 6c86c03b278c42d42ca57cf32f14c3ea7d14799f
+
