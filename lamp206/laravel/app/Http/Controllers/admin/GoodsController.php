@@ -14,18 +14,14 @@ class GoodsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-<<<<<<< HEAD
+    public function index(Request $request)
     {   
-        // 获取全部商品
-        $data = Goods::all();
-        // dd($data);
-        return view('goods.index',['data' => $data]);
-=======
-    {
-        //
-		echo '111';
->>>>>>> 6c86c03b278c42d42ca57cf32f14c3ea7d14799f
+        // 搜索关键字
+        $search = $request -> input('gname',''); 
+        // 获取数据 并且分页
+        $data = Goods::where('gname','like','%'.$search.'%')->orderBy('id','asc')->paginate(10);
+        return view('admin.goods.index',['data' => $data,'request'=>$request->all()]);
+  
     }
 
     /**
@@ -35,7 +31,7 @@ class GoodsController extends Controller
      */
     public function create(Request $request)
     {
-        return view ('goods.create');
+        return view ('admin.goods.create');
     }
 
     /**
@@ -47,8 +43,8 @@ class GoodsController extends Controller
     public function store(Request $request)
     {
         //获取表单提交
-        $data = $request -> all();
-       
+         $data = $request -> except(['_token','_method']);
+     
         $gpic =  $data['gpic'];
         // 处理文件名称
         $temp_name = str_random(20);
@@ -59,11 +55,11 @@ class GoodsController extends Controller
         $dir = './uploads/'.date('Ymd',time());
         // 拼接向数据库存储的文件路径
         $filename = ltrim($dir.'/'.$name,'.');
-       
+        $data['gpic'] = $filename;
          // 执行上传
          $gpic -> move($dir,$name);
          // 添加到数据库
-        $res = goods::where('id','=',$id)->update($data);
+        $res = goods::insert($data);
         if($res) {
             return redirect('/admin/goods')->with('success','添加成功');
         }else{
@@ -81,7 +77,7 @@ class GoodsController extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**
@@ -95,7 +91,7 @@ class GoodsController extends Controller
         // 查询单条
        $data = Goods::find($id);
 
-       return view ('goods/edit',['data'=>$data]);
+       return view ('admin/goods/edit',['data'=>$data]);
 
     }
 
@@ -149,5 +145,13 @@ class GoodsController extends Controller
             return back()->with('errror','删除失败');
         }
 
+    }
+    public function up()
+    {
+       echo 'sdsds';
+    }
+    public function down()
+    {
+        echo '111';
     }
 }

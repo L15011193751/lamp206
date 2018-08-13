@@ -18,7 +18,6 @@ Route::get('/', function () {
 //后台首页
 Route::get('/admin','Admin\IndexController@index');
 
-<<<<<<< HEAD
 
 
 
@@ -29,20 +28,23 @@ Route::get('/admin','Admin\IndexController@index');
 
 
 
+// 前台商品列表
+Route::resource('home/goods','Home\GoodsController');
 
 
 
 
-
-
-
+//后台用户路由
+Route::resource('/admin/user','Admin\UserController');
 
 
 
 
 // 商品浏览
 Route::resource('/admin/goods','Admin\GoodsController');
-=======
-//后台用户路由
-Route::resource('/admin/user','Admin\UserController');
->>>>>>> 6c86c03b278c42d42ca57cf32f14c3ea7d14799f
+//上架下架
+// Route::get('/admin/goods','Admin\GoodsController@up');
+// Route::get('/admin/goods','Admin\GoodsController@down');
+
+// 订单
+Route::resource('/admin/orders','Admin\OrdersController');
