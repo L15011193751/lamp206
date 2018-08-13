@@ -119,6 +119,16 @@
                         </ul>
                     </li>
 
+
+                     <li class="active">
+                        <a href="#"><i class="icon-user"></i> 分类管理</a>
+                        <ul>
+                            <li><a href="/admin/cate/">添加分类</a></li>
+                            <li><a href="/admin/cate/create">分类列表</a></li>
+                           
+                        </ul>
+                    </li>
+
                 </ul>
             </div>
             <div id="mws-navigation">
