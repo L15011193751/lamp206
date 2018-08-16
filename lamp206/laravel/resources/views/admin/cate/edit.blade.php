@@ -1,9 +1,9 @@
-@extends('layout.index')
+@extends('admin.layout.index')
 
 @section('title',$title)
 
 
-@section('content')
+@section('container')
 <div class="mws-panel grid_8">
 	<div class="mws-panel-header">
     	<span>{{$title}}</span>

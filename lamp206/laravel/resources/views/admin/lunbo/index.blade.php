@@ -2,6 +2,7 @@
 
 @section('title',$title)
 
+
 @section('container')
 <div class="wms-form-message success ">
 
@@ -19,53 +20,53 @@
   </div>
   <div class="mws-panel-body no-padding">
     <div id="DataTables_Table_1_wrapper" class="dataTables_wrapper" role="grid">
+    	<form action="/admin/lunbo">
       <div id="DataTables_Table_1_length" class="dataTables_length">
         <label>
           <font style="vertical-align: inherit;">
             <font style="vertical-align: inherit;">显示</font></font>
-          <select size="1" name="DataTables_Table_1_length" aria-controls="DataTables_Table_1">
-            <option value="10" selected="selected">
-              <font style="vertical-align: inherit;">
-                <font style="vertical-align: inherit;">10</font></font>
-            </option>
-            <option value="25">
-              <font style="vertical-align: inherit;">
-                <font style="vertical-align: inherit;">25</font></font>
-            </option>
-            <option value="50">
-              <font style="vertical-align: inherit;">
-                <font style="vertical-align: inherit;">50</font></font>
-            </option>
-            <option value="100">
-              <font style="vertical-align: inherit;">
-                <font style="vertical-align: inherit;">100</font></font>
-            </option>
-          </select>
+             <select name="num" size="1" aria-controls="DataTables_Table_1">
+
+                            <option value="5" @if($request->num ==5)   selected="selected" @endif>
+                              5
+                            </option>
+                            <option value="7" @if($request->num == 7)   selected="selected" @endif>
+                              7
+                            </option>
+                            <option value="10" @if($request->num ==10)   selected="selected" @endif>
+                                10
+                            </option>
+                           
+	                        
+	                    </select>
           <font style="vertical-align: inherit;">
             <font style="vertical-align: inherit;">项</font></font>
         </label>
       </div>
-      <div class="dataTables_filter" id="DataTables_Table_1_filter">
-        
-                  <label>
-                      分类名:
-                      <input type="text" name='search' value="{{$request->search}}" aria-controls="DataTables_Table_1">
-                  </label>
+       <div class="dataTables_filter" id="DataTables_Table_1_filter">
+	                <label>
+	                    分类名:
+	                    <input type="text" name='search' value="{{$request->search}}" aria-controls="DataTables_Table_1">
+	                </label>
 
                    
 
-                  <button class='btn btn-info'>搜索</button>
-              </div>
-      
+	                <button class='btn btn-info'>搜索</button>
+	            </div>
+	            <div>
+	            </div>
+
+	         </form>   
       <table class="mws-datatable-fn mws-table dataTable" id="DataTables_Table_1" aria-describedby="DataTables_Table_1_info">
        
             <tr>
             
                <td class=" ">id</td>
-               <td class=" ">类名</td>
-               <td class=" ">父级id</td>
-               <td class=" ">路径</td>
-              
+               <td class=" ">标题名</td>
+               <td class=" ">跳转地址</td>
+               <td class=" ">图片地址</td>
+
+              <td class=" ">状态</td>
                <td class="" > 操       作 </td>
 
           </tr>
@@ -74,25 +75,20 @@
             @foreach($res as $k=>$v)
           <tr>
             <td >{{$v->id}}</td>
-            <td >{{$v->cname}}</td>
-            <td >{{$v->pid}}</td>
-            <td >{{$v->path}}</td>
+            <td >{{$v->title}}</td>
+            <td >{{$v->url}}</td>
+            <td >{{$v->gpic}}</td> 
+            <td >{{$v->status}}</td>
            
-
-            <td>
-               <form action="/admin/cate/{{$v->id}}/edit" class="btn btn-info">
-                <button>修改</button>
-               </form>
-                <form action="/admin/cate/{{$v->id}}" method="post" style="display:inline">
+           <td>
+           <form action="/admin/cate/{{$v->id}}" method="post" style="display:inline">
 
                 <button class="btn btn-danger" >删除</button>
 
                 {{csrf_field()}}
                 {{method_field('DELETE')}}
               </form>
-                
-            </td>
-
+              </td>
           </tr>
           @endforeach
          
@@ -138,7 +134,8 @@
       
   <div class="paper">
     
- {!!$res->render()!!}
+    {!!$res->render()!!}
     
+      </div>
 
 @endsection

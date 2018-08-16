@@ -28,9 +28,10 @@ Route::get('/admin','Admin\IndexController@index');
 
 
 
-
+//后台分类路由
 Route::resource('admin/cate','admin\CatesController');
-
+//轮播图路由
+Route::resource('admin/lunbo','admin\LunboController');
 
 
 
