@@ -11,4 +11,8 @@ class Orders extends Model
 
     // 设置主键
     public $primaryKey = 'oid';
+    public function detail()
+	{
+		return $this->hasMany('Orders_detail','orders_oid','oid');
+	}
 }

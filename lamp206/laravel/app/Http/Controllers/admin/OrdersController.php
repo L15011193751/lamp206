@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use   App\Models\Orders;
+use   App\Models\Orders_detail;
 class OrdersController extends Controller
 {
     /**
@@ -18,7 +19,7 @@ class OrdersController extends Controller
     {
         // 获取数据
         $data = Orders::get();
-       
+      
         return view ('admin.orders.index',['data'=>$data]);
     }
 

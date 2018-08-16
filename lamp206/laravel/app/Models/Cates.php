@@ -10,12 +10,12 @@ class Cates extends Model
 
 
 
-    protected $table='sh_cate';
+    protected $table='cate';
     protected $pk='id';
-    protected $timestamps='false';
+    public $timestamps='false';
 
     protected $fillable=[
      'cname','pid','path'
 
-   ]
+   ];
 }

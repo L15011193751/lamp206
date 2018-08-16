@@ -1,8 +1,8 @@
-@extends('layout.index')
+@extends('admin.layout.index')
 
 @section('title',$title)
 
-@section('content')
+@section('container')
 <div class="wms-form-message success ">
 
 {{session('success')}}

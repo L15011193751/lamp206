@@ -1,8 +1,8 @@
-@extends('layout.index')
+@extends('admin.layout.index')
 
 @section('title','后台的首页')
 
-@section('content')
+@section('container')
 
 
 

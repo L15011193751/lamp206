@@ -34,7 +34,7 @@ class GoodsController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -45,7 +45,7 @@ class GoodsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
     }
 
     /**
@@ -56,8 +56,11 @@ class GoodsController extends Controller
      */
     public function show($id)
     {
+        //  获取数据
         $data = Goods::find($id);
+        
         return view ('home.goods.details',['data'=>$data]);
+        
     }
 
     /**
