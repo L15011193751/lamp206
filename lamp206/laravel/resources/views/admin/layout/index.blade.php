@@ -73,9 +73,9 @@
                         Hello, John Doe
                     </div>
                     <ul>
-                        <li><a href="#">修改文件</a></li>
+                        <li><a href="/admin/login">登录</a></li>
                         <li><a href="#">修改密码</a></li>
-                        <li><a href="index.html">退出</a></li>
+                        <li><a href="/admin/login">退出</a></li>
                     </ul>
                 </div>
             </div>
@@ -112,7 +112,7 @@
                 <ul>
                     
                     <li class="active">
-                        <a href="#"><i class="icon-user"></i> 用户管理</a>
+                        <a href="#"><i class="icon-user"></i>用户管理</a>
                         <ul>
                             <li><a href="/admin/user">用户列表</a></li>
                             <li><a href="/admin/user/create">用户添加</a></li>

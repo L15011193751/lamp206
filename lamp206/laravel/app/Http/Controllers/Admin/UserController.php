@@ -22,7 +22,7 @@ class UserController extends Controller
     public function index(Request $request)
     {
         $search = $request -> input('search',''); //搜索关键字
-        $count = $request -> input('count',2);  //搜索条数
+        $count = $request -> input('count',3);  //搜索条数
         //获取数据 并且分页
         $data = User::where('username','like','%'.$search.'%')->orderBy('id','asc')->paginate($count);
         return view('admin.user.index',['data'=>$data,'title'=>'用户列表','request'=>$request->all()]);
