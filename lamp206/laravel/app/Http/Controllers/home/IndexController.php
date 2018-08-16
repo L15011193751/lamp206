@@ -24,7 +24,7 @@ class IndexController extends Controller
      $pnum= $request->input('pnum');
      $pcom= $request->input('pcom');
      $ppart= $request->input('ppart');
-     $search = Goods::all();
+     $search = Goods::all();  
      $pnum && $search->where('pnum','like','%' . $pnum . '%');
      $pcom && $search->where('pcom','like','%' . $pcom . '%');
      $ppart && $search->where('ppart','like','%' . $ppart . '%');
