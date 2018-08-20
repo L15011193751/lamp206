@@ -1,4 +1,6 @@
 #page-page {
+    width: 70px;
+    height: 30px;
 	color: #ffffff;
     float: right;
     padding: 2px;
@@ -13,11 +15,12 @@
 }
 
 #page_page li{
-	float: left;
+	float:right;
+    width: 35px;
     height: 20px;
     padding: 0 10px;
     display: block;
-    font-size: 12px;
+    font-size: 17px;
     line-height: 20px;
     text-align: center;
     cursor: pointer;

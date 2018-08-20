@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use DB;
 use App\Models\Goods;
 
 class IndexController extends Controller
@@ -15,22 +14,22 @@ class IndexController extends Controller
     public function index()
     {
         return view('home.index.index');
-
     }
 
    public function search(Request $request)
    {
-      
-     $pnum= $request->input('pnum');
-     $pcom= $request->input('pcom');
-     $ppart= $request->input('ppart');
-     $search = Goods::all();  
-     $pnum && $search->where('pnum','like','%' . $pnum . '%');
-     $pcom && $search->where('pcom','like','%' . $pcom . '%');
-     $ppart && $search->where('ppart','like','%' . $ppart . '%');
-     $all = $search->paginate(10);//分页
-     return view ('home.goods',['all'=>$all,'pnum'=>$pnum,'pcom'=>$pcom,'ppart'=>$ppart]);
-     // return view ('home/goods')->with(array('all'=>$all,'pnum'=>$pnum,'pcom'=>$pcom,'ppart'=>$ppart));
+     
+     $gname= $request->input('gname','');
+     $data = Goods::where('gname','like','%' . $gname . '%')->paginate(5);
+
+     // $language= $request->input('language');
+     // $search = Goods::all();  
+     // $search=$data::;
+     // $language && $search->where('language','like','%' . $language . '%');
+     // $all = $search->paginate(10); //分页
+     return view ('home.goods.index',['data'=>$data,'request'=>$request->all()]);
+
+     // return view ('home/goods')->with(array('all'=>$all,'gname'=>$gname,'gdesc'=>$gdesc,'language'=>$language));
     
     } 
 }

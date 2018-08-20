@@ -116,10 +116,41 @@
                         <ul>
                             <li><a href="/admin/user">用户列表</a></li>
                             <li><a href="/admin/user/create">用户添加</a></li>
-                            <li><a href="">用户删除</a></li>
                         </ul>
                     </li>
 
+
+                     <li class="active">
+                        <a href="#"><i class="icon-user"></i> 分类管理</a>
+                        <ul>
+                            <li><a href="/admin/cate/create">添加分类</a></li>
+                            <li><a href="/admin/cate">分类列表</a></li>
+                           
+                        </ul>
+                    </li>
+
+                </ul>
+            </div>
+            <div id="mws-navigation">
+                <ul>
+                    <li>
+                        <a href="#"><i class="icon-database"></i>商品管理</a>
+                        <ul>
+                            <li><a href="/admin/goods/create">添加商品</a></li>
+                            <li><a href="/admin/goods">浏览商品</a></li>
+                           
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div id="mws-navigation">
+                <ul>
+                    <li>
+                        <a href="#"><i class="icon-database"></i>订单管理</a>
+                        <ul>
+                            <li><a href="/admin/orders/">浏览订单</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -152,9 +183,9 @@
             <!-- Inner Container End -->
                        
             <!-- Footer -->
-            <div id="mws-footer">
+           <!--  <div id="mws-footer">
                 Copyright Your Website 2012. All Rights Reserved.
-            </div>
+            </div> -->
             
         </div>
         <!-- Main Container End -->
@@ -165,7 +196,7 @@
     <script src="/mws/js/libs/jquery-1.8.3.min.js"></script>
     <script src="/mws/js/libs/jquery.mousewheel.min.js"></script>
     <script src="/mws/js/libs/jquery.placeholder.min.js"></script>
-    <script src="/mws/custom-plugins/fileinput.js"></script>
+    <!-- <script src="/mws/custom-plugins/fileinput.js"></script> -->
     
     <!-- jQuery-UI Dependent Scripts -->
     <script src="/mws/jui/js/jquery-ui-1.9.2.min.js"></script>

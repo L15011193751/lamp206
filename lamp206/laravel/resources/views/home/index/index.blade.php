@@ -14,6 +14,8 @@
 
 		<link href="/home/css/hmstyle.css" rel="stylesheet" type="text/css"/>
 		<link href="/home/css/skin.css" rel="stylesheet" type="text/css" />
+
+		
 		<script src="/home/AmazeUI-2.4.2/assets/js/jquery.min.js"></script>
 		<script src="/home/AmazeUI-2.4.2/assets/js/amazeui.min.js"></script>
 
@@ -56,12 +58,13 @@
 
 					<div class="search-bar pr">
 						<a name="gname" href="#"></a>
-						<form action="/home/goods" method="post">
+						<form action="/home/goods/index" method="post">
 							{{ csrf_field() }}
-							<input id="searchInput" name="gname" type="text" placeholder="搜索" autocomplete="off">
+							<input id="searchInput" name="gname" type="text" placeholder="商品关键字" autocomplete="off">
 							<input id="ai-topsearch" class="submit am-btn" value="搜索" index="1" type="submit">
-						
+							
 						</form>
+						
 					</div>
 					
 				</div>

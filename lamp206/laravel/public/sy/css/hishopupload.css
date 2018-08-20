@@ -1,0 +1,62 @@
+﻿
+    .col-sm-12 {
+        padding: 0 !important;
+    }
+
+    .upload-img-box {
+        width: 100px;
+        height: 100px;
+        border-radius: 8px;
+        margin: 0 40px 30px 0;
+    }
+
+    .img-upload-btn {
+        border: 0;
+        background: #ccc;
+        width: 100px;
+        height: 100px;
+    }
+
+    .imageContainer h3 {
+        margin-top: 0;
+    }
+
+    .upload-img-box img {
+        border: 0;
+        border-radius: 6px;
+        width:100px !important;
+        height:100px !important;
+    }
+
+    .img-upload-btn {
+        font-weight: normal !important;
+        font-size: 14px !important;
+        color: #fff;
+        line-height: 50px;
+    }
+    .glyphicon-plus:before{
+        font-size:28px;
+        line-height:100px;
+    }
+    .upload-img-box .remove-img {
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        display: inline-block;
+        line-height: 1;
+        border-radius: 15px;
+        z-index: 9999;
+        right: -10px;
+        top: -10px;
+        background: url(../images/upl_img_del.png);
+        background-size: 100%;
+        opacity:1;
+    }
+    
+    .Prompt{
+        width:100px;
+        height:100px;
+        display:inline-block;
+        position:fixed;
+        background:rgba(0,0,0,0.5);
+    }
