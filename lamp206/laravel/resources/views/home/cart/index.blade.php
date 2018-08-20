@@ -1,5 +1,5 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE>
+<html>
 
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -7,12 +7,28 @@
 
 		<title>购物车页面</title>
 
-		<link href="AmazeUI-2.4.2/assets/css/amazeui.css" rel="stylesheet" type="text/css" />
-		<link href="basic/css/demo.css" rel="stylesheet" type="text/css" />
-		<link href="css/cartstyle.css" rel="stylesheet" type="text/css" />
-		<link href="css/optstyle.css" rel="stylesheet" type="text/css" />
+		<link href="/home/AmazeUI-2.4.2/assets/css/amazeui.css" rel="stylesheet" type="text/css" />
+		<link href="/home/basic/css/demo.css" rel="stylesheet" type="text/css" />
+		<link href="/home/css/cartstyle.css" rel="stylesheet" type="text/css" />
+		<link href="/home/css/optstyle.css" rel="stylesheet" type="text/css" />
 
-		<script type="text/javascript" src="js/jquery.js"></script>
+		<script type="text/javascript" src="/home/js/jquery.js"></script>
+		<style type="text/css">
+		
+.btn-area {
+    width: 180px;
+    background: #F40;
+    text-decoration: none;
+    text-align: center;
+
+}
+.amount-sum, .price-sum, .btn-area {
+    float: left;
+    height: 48px;
+    color: #3C3C3C;
+    line-height: 48px;
+}
+		</style>
 
 	</head>
 
@@ -48,17 +64,14 @@
 			<div class="nav white">
 				<div class="logo"><img src="images/logo.png" /></div>
 				<div class="logoBig">
-					<li><img src="images/logobig.png" /></li>
+					<li><img src="/home/images/logobig.png" /></li>
 				</div>
 
 				<div class="search-bar pr">
-					<a name="index_none_header_sysc" href="#"></a>
-					<form>
-						<input id="searchInput" name="index_none_header_sysc" type="text" placeholder="搜索" autocomplete="off">
-						<input id="ai-topsearch" class="submit am-btn" value="搜索" index="1" type="submit">
-					</form>
+					
+						<img src="/home/images/360截图16230310171213.png" alt="">
 				</div>
-			</div>
+			</div><br>
 
 			<div class="clear"></div>
 
@@ -98,14 +111,13 @@
 								<div class="bd-promos">
 									<div class="bd-has-promo">已享优惠:<span class="bd-has-promo-content">省￥19.50</span>&nbsp;&nbsp;</div>
 									<div class="act-promo">
-										<a href="#" target="_blank">第二支半价，第三支免费<span class="gt">&gt;&gt;</span></a>
+										<a href="#" target="_blank">第二束半价<span class="gt">&gt;&gt;</span></a>
 									</div>
 									<span class="list-change theme-login">编辑</span>
 								</div>
 							</div>
 							@foreach ($carts as $k => $v)
-							<form action="/home/orders/create" method="get">
-								{{ csrf_field() }}
+							
 							<div class="clear"></div>
 							<div class="bundle-main">
 								<ul class="item-content clearfix">
@@ -146,6 +158,8 @@
 											</div>
 										</div>
 									</li>
+							<form action="/home/orders/create" method="get">
+								<input type="hidden" name="gid" value="{$goods->gid}">
 									<li class="td td-amount">
 										<div class="amount-wrapper ">
 											<div class="item-amount ">
@@ -159,16 +173,16 @@
 									</li>
 									<li class="td td-sum">
 										<div class="td-inner">
-											<em tabindex="0" class="J_ItemSum number">{{ $v['price'] }}</em>
+											<em tabindex="0" class="J_ItemSum number">合计 :{{ $v['price']*$v['cnt'] }}</em>
 										</div>
 									</li>
 									<li class="td td-op">
 										<div class="td-inner">
 											<a title="移入收藏夹" class="btn-fav" href="#">
                  												 移入收藏夹</a>
-											<form action="/home/cart/{{ $v['id'] }}" method="post">
-												{{ csrf_field() }}
-												{{ method_field('DELETE') }}
+											<form action="/home/cart/{{ $v['id'] }}" method="">
+												
+												
 												<button style="submit">删除</button>
 												
 											</form>
@@ -210,16 +224,15 @@
 							<span class="txt">合计:</span>
 							<strong class="price">¥<em id="J_Total">{{ $sum }}</em></strong>
 						</div>
+						<form action="/home/orders/" method="post">
+							{{ csrf_field() }}
+
 						<div class="btn-area">
 							<!-- <a href="pay.html" id="J_Go" class="submit-btn submit-btn-disabled" aria-label="请注意如果没有选择宝贝，将无法结算">
 								<span>结&nbsp;算</span></a> -->
-
-							<form action="/home/orders/create" method="get">
-								{{ csrf_field() }}
-								<button style="submit">结&nbsp;算</button>
-							</form>	
-								
+								<button type="submit " class="btn-area"><h2>结&nbsp;算</h2></button>	
 						</div>
+						</form>
 					</div>
 
 				</div>

@@ -1,5 +1,5 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE>
+<html>
 
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -83,9 +83,9 @@
 						</div>
 			</div>
 			
-				<div>
+				<!-- <div>
 					<img src="/home/images/fenlei.jpg" alt="" />
-				</div>
+				</div> -->
 					<div class="am-g am-g-fixed">
 						<div class="am-u-sm-12 am-u-md-12">
 	                  	<div class="theme-popover">										
@@ -103,13 +103,13 @@
 								</li>
 								<div class="clear"></div>
 								<li class="select-list">
-									<dl id="select1">
+									<!-- <dl id="select1">
 										<dt class="am-badge am-round">颜色</dt>	
 									
 										 <div class="dd-conent">										
 											<dd class="select-all selected"><a href="#">全部</a></dd>
 											<dd><a href="#"></a></dd>
-											<dd><a href="#">白色</a></dd>
+											<dd><a href="">白色</a></dd>
 											<dd><a href="#">粉色</a></dd>
 											<dd><a href="#">紫色</a></dd>
 											<dd><a href="#">红色</a></dd>
@@ -117,7 +117,7 @@
 											<dd><a href="#">香槟色</a></dd>
 										 </div>
 						
-									</dl>
+									</dl> -->
 								</li>
 								<li class="select-list">
 									<dl id="select2">
@@ -151,7 +151,7 @@
 										</div>
 									</dl>
 								</li>
-					        	<li class="select-list">
+					        	<!-- <li class="select-list">
 									<dl id="select3">
 										<dt class="am-badge am-round">花材</dt>
 										<div class="dd-conent">
@@ -166,8 +166,8 @@
 											<dd><a href="#">马蹄莲</a></dd>
 										</div>
 									</dl>
-								</li>
-								<li class="select-list">
+								</li> -->
+								<!-- <li class="select-list">
 									<dl id="select3">
 										<dt class="am-badge am-round">节日专题</dt>
 										<div class="dd-conent">
@@ -183,7 +183,7 @@
 											<dd><a href="#">清明节</a></dd>
 										</div>
 									</dl>
-								</li>
+								</li> -->
 							</ul>
 							<div class="clear"></div>
                         </div>

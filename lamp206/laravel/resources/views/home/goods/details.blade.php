@@ -1,6 +1,5 @@
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE >
+<html >
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="renderer" content="webkit">
@@ -15,8 +14,8 @@
             var HasVshopRight = true;
         </script>
 <meta http-equiv="content-language" content="zh-CN">
-<link rel="icon" type="image/x-icon" href="http://www.ismei.net/favicon.ico" media="screen">
-<link rel="shortcut icon" type="image/x-icon" href="http://www.ismei.net/favicon.ico" media="screen">
+<!-- <link rel="icon" type="image/x-icon" href="http://www.ismei.net/favicon.ico" media="screen"> -->
+<!-- <link rel="shortcut icon" type="image/x-icon" href="http://www.ismei.net/favicon.ico" media="screen"> -->
 <meta name="author" content="Hishop development team">
 <meta name="GENERATOR" content="2.2(kb21001)">
 
@@ -64,9 +63,25 @@
                     text-decoration: underline;
                 }
 
-                    .btmul-li ul li a:hover {
-                        color: #fcff00;
-                    }
+            .btmul-li ul li a:hover {
+                color: #fcff00;
+            }
+            .product_btns_shop {
+                    width: 130px;
+                    background: #ff5722;
+                    height: 40px;
+                    line-height: 40px;
+                    overflow: hidden;
+                    font-size: 16px;
+                    color: #fff;
+                    margin-left: 15px;
+                    text-align: center;
+                }
+                .product_btns_shop_1 {
+                    
+                    background: #D5E1E2;
+                   
+                }
     </style>
     <script src="/sy/js/windows.js" type="text/javascript"></script>
     <link href="/sy/css/windows.css" rel="stylesheet">
@@ -145,8 +160,8 @@
 
     <div id="header" class="top">
         
-        <a>
-            <img style="width: 100%" src="picture/1.png" alt=""></a>
+       <!--  <a>
+            <img style="width: 100%" src="picture/1.png" alt=""></a> -->
         <div class="top-w">
             <div class="top-main">
                 <span style="display: none;">
@@ -793,11 +808,11 @@
             <div class="zoom-section">
                 <div class="zoom-section">
                     <div class="zoom-small-image">
-                        <a id="zoom1" class="cloud-zoom" rel="adjustX:10, adjustY:-4" title="美丽的诺言-11枝红玫瑰,小熊" href="/sy/Storage/master/product/images/201808071553405490720.jpg">
+                        <a id="zoom1" class="cloud-zoom" rel="adjustX:10, adjustY:-4" title="美丽的诺言-11枝红玫瑰,小熊" href="/uploads/20180814/eDfyr0Z9g8nUXXyzxP7V.jpg                            ">
                             <table cellspacing="0" cellpadding="0" border="0" width="100%" height="100%">
                                 <tr>
                                     <td align="center" valign="middle">
-                                        <img id="ProductDetails_common_ProductImages___imgBig" title="Optional title display" src="/home/images/pro_description_tu.jpg" border="0">
+                                        <img id=""  style="width: 410px:height: 410px" title="Optional title display" src="{{ $data['gpic'] }}" border="0">
                                     </td>
                                 </tr>
                             </table>
@@ -805,10 +820,11 @@
                     </div>
                     <div class="zoom-desc">
                         <p>
-                            <a id="ProductDetails_common_ProductImages___iptPicUrl1" class="cloud-zoom-gallery" title="美丽的诺言-11枝红玫瑰,小熊" rel="useZoom: 'zoom1', smallImage: '/home/images/pro_description_tu.jpg'" href="/sy/Storage/master/product/images/201808071553405490720.jpg"><img id="ProductDetails_common_ProductImages___imgSmall1" alt="Thumbnail 1" src="/sy/Storage/master/product/images/201808071553405490720.jpg" border="0"></a>
-                            <a id="ProductDetails_common_ProductImages___iptPicUrl2" class="cloud-zoom-gallery" title=""></a>
-                            <a id="ProductDetails_common_ProductImages___iptPicUrl3" class="cloud-zoom-gallery" title=""></a>
-                            <a id="ProductDetails_common_ProductImages___iptPicUrl4" class="cloud-zoom-gallery" title=""></a>
+                            <a id="ProductDetails_common_ProductImages___iptPicUrl1" class="cloud-zoom-gallery" title="美丽的诺言-11枝红玫瑰,小熊" rel="useZoom: 'zoom1', smallImage: '/home/images/pro_description_tu.jpg'" href="/uploads/20180814/eDfyr0Z9g8nUXXyzxP7V.jpg                            "><img id="ProductDetails_common_ProductImages___imgSmall1" alt="Thumbnail 1" src="/uploads/20180814/eDfyr0Z9g8nUXXyzxP7V.jpg                            " border="0"></a>
+                             <a id="ProductDetails_common_ProductImages___iptPicUrl1" class="cloud-zoom-gallery" title="美丽的诺言-11枝红玫瑰,小熊" rel="useZoom: 'zoom1', smallImage: '/home/images/pro_description_tu.jpg'" href="/uploads/20180814/eDfyr0Z9g8nUXXyzxP7V.jpg                            "><img id="ProductDetails_common_ProductImages___imgSmall1" alt="Thumbnail 1" src="/uploads/20180814/eDfyr0Z9g8nUXXyzxP7V.jpg                            " border="0"></a>
+                             <a id="ProductDetails_common_ProductImages___iptPicUrl1" class="cloud-zoom-gallery" title="美丽的诺言-11枝红玫瑰,小熊" rel="useZoom: 'zoom1', smallImage: '/home/images/pro_description_tu.jpg'" href="/uploads/20180814/eDfyr0Z9g8nUXXyzxP7V.jpg                            "><img id="ProductDetails_common_ProductImages___imgSmall1" alt="Thumbnail 1" src="/uploads/20180814/eDfyr0Z9g8nUXXyzxP7V.jpg                            " border="0"></a>
+                            
+                            
                             <a id="ProductDetails_common_ProductImages___iptPicUrl5" class="cloud-zoom-gallery" title=""></a>
                         </p>
                     </div>
@@ -864,9 +880,8 @@
 
         </div>
         <div class="product_parameter">
-        <form action="/home/cart/create" method="get">
+        
             <table cellpadding="0" cellspacing="0" border="0" width="530">
-                 <input type="hidden" name="id" value="{{$data['id']}}"> 
 
                 <tr>
                     <td><div id="bfdProductTitle">{{ $data['gname'] }}</div></td>
@@ -918,6 +933,7 @@
                     </td>
                 </tr>
                 <!--<tr class="product_para3"><td>
+            }
 <div id="SetRegion" class="setregion">
 
     <span style=" width:66px; padding-left:15px;">配送至：</span>
@@ -965,13 +981,21 @@
 
                 <tr class="product_para_select">
                     <td>
-                        
+                    
                         <div class="product_para_num">
+                             <div class="amount-unit">
+                                <span style=" display:none;">￥<span><span id="productDetails_Total">209.00</span><input id="productDetails_Total_v" name="productDetails_Total_v" value="209.0000" type="hidden"> </span></span>库存：
+                            </div>
 
+            
+                            <input name="ProductDetails$hidIsOpenMultiStore" type="hidden" id="hidIsOpenMultiStore" value="0"> 
                             <div class="title">数量：</div>
-                            <div class="tb-text"><span id="ProductDetails_txtBuyAmount" class="Product_input">
-                                <input class="Product_input" id="buyAmount" type="text" value="1" style="width:30px;">
-                                <input id="oldBuyNumHidden" type="hidden" name="cnt" value="1">
+                            <form action="/home/cart/create" method="get">
+                            <div class="tb-text">
+                                <input type="hidden" name="id" value="{{ $data['id'] }}"> 
+                                <span id="ProductDetails_txtBuyAmount" class="Product_input">
+                                <input class="Product_input" id="buyAmount" type="text" name="cnt" value="1" style="width:30px;">
+                                <input id="oldBuyNumHidden" type="hidden"  value="1">
                             </span>
                         </div>
                             <div class="mui-amount-btn">
@@ -980,10 +1004,7 @@
 
                             </div>
 
-                            <div class="amount-unit">
-                                <span style=" display:none;">￥<span><span id="productDetails_Total">209.00</span><input id="productDetails_Total_v" name="productDetails_Total_v" value="209.0000" type="hidden"> </span></span>库存：
-                            </div>
-                            <input name="ProductDetails$hidIsOpenMultiStore" type="hidden" id="hidIsOpenMultiStore" value="0"> 
+                           
                         </div>
                     </td>
                 </tr>
@@ -992,20 +1013,15 @@
                         <table id="ProductDetails_tbbuy" cellpadding="0" cellspacing="0" border="0" width="530">
     <tr>
         <td colspan="3">
+            
+           
                                     <ul class="Product_tg_ul">
 
-                                        <!--<li class="product_btns_buy">
-                                            <input type="hidden" id="hiddenIsLogin" value="nologin" /><span id="buyButton">立即购买</span>
-                                        </li>-->
-                                       
-                                            <li class="product_btns_buy">
-                                            <button style="submit">立即购买</button>
-                                            <!-- <span id="liAmoBuy">  </span> -->
-                                            </li>
-                                        
-                                        
-                                        <li class="product_btns_shop">
-                                            <button style="submit">立即购买</button>
+                                        <li>
+                                        <button class="product_btns_shop product_btns_shop_1" style="submit">立即购买</button>
+                                        </li>
+                                        <li>
+                                            <button class="product_btns_shop" style="submit">加入购物车</button>
                                         </li>
                                     </ul>
                                 </td>
@@ -1025,11 +1041,11 @@
             </div>
             
             <div class="sever">
-                <em>服务支持：</em>
+            
                 <span>
                     
                     
-                    <img id="imgCustomerService" src="picture/customerservice.jpg">
+                    <img id="imgCustomerService" src="/home/images/360截图16230318548197.png">
                 </span>
             </div>
         </div>
@@ -1042,12 +1058,12 @@
         <div class="category_l">
             <div class="paihangtop ma10">热销推荐</div>
             <div class="sale_pro" id="div_hotProducts">
-            <!--<div class="sale_top160 cssEdite" type="top" id="products_17" ><ul>
+        <div class="sale_top160 cssEdite" type="top" id="products_17" ><ul>
     
     <li class="sale_top1"><em style=" display:none;">1</em>
         <div class="pic">
             <a target="_blank" href="/product_detail-1257.aspx">
-                <img src="picture/160_201808071553405490720.jpg" alt="美丽的诺言-11枝红玫瑰,小熊"></a></div>
+                <img src="/uploads/20180814/eDfyr0Z9g8nUXXyzxP7V.jpg" alt="美丽的诺言-11枝红玫瑰,小熊"></a></div>
         <div class="info">
            
             <div class="name"><a target="_blank" href="/product_detail-1257.aspx">美丽的诺言-11枝红玫瑰,小熊</a></div>
@@ -1063,7 +1079,7 @@
     <li class="sale_top2"><em style=" display:none;">2</em>
         <div class="pic">
             <a target="_blank" href="/product_detail-1099.aspx">
-                <img src="picture/160_4da50e31fea44e6b9e2cbbb369f1f946.jpg" alt="温暖节奏-19朵向日葵"></a></div>
+                <img src="/uploads/20180814/sqyk3hKNSsYrHCvrnLcu.jpg" alt="温暖节奏-19朵向日葵"></a></div>
         <div class="info">
            
             <div class="name"><a target="_blank" href="/product_detail-1099.aspx">温暖节奏-19朵向日葵</a></div>
@@ -1079,7 +1095,7 @@
     <li class="sale_top3"><em style=" display:none;">3</em>
         <div class="pic">
             <a target="_blank" href="/product_detail-1453.aspx">
-                <img src="picture/160_f2086213ad814b6e985d3d646636cf35.jpg" alt="守候你一人-99朵粉玫瑰"></a></div>
+                <img src="/uploads/20180814/vSc1kYrRF8fQx53eeprP.jpg" alt="守候你一人-99朵粉玫瑰"></a></div>
         <div class="info">
            
             <div class="name"><a target="_blank" href="/product_detail-1453.aspx">守候你一人-99朵粉玫瑰</a></div>
@@ -1095,7 +1111,7 @@
     <li class="sale_top4"><em style=" display:none;">4</em>
         <div class="pic">
             <a target="_blank" href="/product_detail-1836.aspx">
-                <img src="picture/160_201610170920137909290.jpg" alt="不悔的爱  50朵香槟 2支小熊"></a></div>
+                <img src="/uploads/20180814/w1Zx8S1JdVCytWwAQ09l.jpg" alt="不悔的爱  50朵香槟 2支小熊"></a></div>
         <div class="info">
            
             <div class="name"><a target="_blank" href="/product_detail-1836.aspx">不悔的爱  50朵香槟 2支小熊</a></div>
@@ -1111,7 +1127,7 @@
     <li class="sale_top5"><em style=" display:none;">5</em>
         <div class="pic">
             <a target="_blank" href="/product_detail-1774.aspx">
-                <img src="picture/160_201610101305558140820.jpg" alt="暖暖心意   9支粉色郁金香  9朵小配花 2支绣球"></a></div>
+                <img src="/uploads/20180814/vSc1kYrRF8fQx53eeprP.jpg" alt="暖暖心意   9支粉色郁金香  9朵小配花 2支绣球"></a></div>
         <div class="info">
            
             <div class="name"><a target="_blank" href="/product_detail-1774.aspx">暖暖心意   9支粉色郁金香  9朵小配花 2支绣球</a></div>
@@ -1127,7 +1143,7 @@
     
 </ul>
 
-</div>-->
+</div>
             </div>
         </div>
         <div class="category_r">
@@ -1143,7 +1159,7 @@
                 <div class="product_mc">
                     <div class="detail-content-item">
                         <ul>
-                            
+                 <!--   <div style="height:auto;overflow:hidden;"><p><img data-url="http://www.ismei.net/storage/template/20161027/6361318215752744517529338.png" src="http://www.ismei.net/storage/template/20161027/6361318215752744517529338.png"></p><p><img data-url="http://www.ismei.net/storage/template/20161102/6361370121938464672293786.jpg" src="http://www.ismei.net/storage/template/20161102/6361370121938464672293786.jpg"></p><p><img data-url="http://www.ismei.net/storage/template/20160927/6361059769713658079275172.jpg" src="http://www.ismei.net/storage/template/20160927/6361059769713658079275172.jpg"></p><p><br></p></div>  -->        
                             
 <li class="product_attri_tab">
     <b>价格：</b>
@@ -1179,7 +1195,7 @@
 </li>
                         </ul>
                     </div>
-                    <div style="height:auto;overflow:hidden;"><p><img data-url="http://www.ismei.net/storage/template/20160927/6361059769713658079275172.jpg"></p><p><br></p></div>
+                    <div style="height:auto;overflow:hidden;"><p><img data-url="://www.ismei.net/storage/template/20160927/6361059769713658079275172.jpg"></p><p><br></p></div>
                 </div>
 
                 <div class="product_mc" style="display:none">

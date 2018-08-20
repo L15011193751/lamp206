@@ -6,7 +6,9 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-
+use App\Models\Orders;
+use App\Models\Ordersdetail;
+use DB;
 class OrdersController extends Controller
 {
     /**
@@ -16,8 +18,14 @@ class OrdersController extends Controller
      */
     public function index()
     {
-
+        
+        $carts = session('cart.id');
+        $sum = session("orders.sum");
+      
+       // dd($carts);
+       return view('home/orders/settlement',['carts'=>$carts,'sum'=>$sum]);
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -25,14 +33,57 @@ class OrdersController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create(Request $request)
-    {
-        $carts = session('cart.$id');
-        $sum = session("orders.sum");
+    {   // 收货人
+    //     session('orders.rec', $request->input('rec')) ;
+    //     // 联系电话
+    //     session('orders.tel', $request->input('phone')) ;
+    //     // 收货地址
+    //     session('orders.addr', $request->input('addr')) ;
+    //     // 买家留言
+    //     session('orders.umsg', $request->input('umsg')) ;
+    //     // 订单号
+    //     $res = session('orders.oid',date('YmdHis').mt_rand(1000,9999));
+    //     // 下单人id
+    //     session('orders.uid',session('homeUserInfo.uid'));
+    //     //  订单状态
+    //     session('orders.status',1);
+    //     // 下单时间
+    //     session('orders.create_at',time());
         
-       // dd($sum);
-       return view('home/orders/settlement',['carts'=>$carts,'sum'=>$sum]);
+
+        DB::beginTransaction(); //开启事务
+         $sum = session("orders.sum");
+         // dd($sum);
+        // 存入数据表
+       
+        $orders = new Orders;
+        $orders -> rec =$request->input('rec');
+        $orders -> addr =$request->input('addr');
+        $orders -> state =1;
+        $orders -> create_at =time();
+       
+        $orders -> save();
+        $red = date('YmdHis').mt_rand(1000,9999);
+        $aa = $request->input('price');
+        // dd($aa);
+        $ordesdetail = new  Ordersdetail;
+        // $ordersdetail -> order_oid =$red;
+        // $ordersdetail -> price = $request->input('price');
+        // $ordersdetail -> cnt = $request->input('cnt');
+
+         // $ordesdetail -> save();
+        // if($res1 && $res2){
+        //     DB::commit(); // 提交事务
+           return view('home.orders.index',['red'=>$red  ,'sum'=>$sum]);
+        // }else{              // 回滚事务
+        //     DB::rollBack();
+        //     return back()->with('error','添加失败');
+        // }
+
+        
     }
 
+    
     /**
      * Store a newly created resource in storage.
      *
@@ -41,17 +92,7 @@ class OrdersController extends Controller
      */
     public function store(Request $request)
     {
-        session('orders.rec', $request->input('rec')) ;//收货人
-        session('orders.tel', $request->input('tel')) ;//联系电话
-        session('orders.addr', $request->input('addr')) ;//收货地址
-        session('orders.umsg', $request->input('umsg')) ;//买家留言
-        session('orders.oid',date('YmdHis').mt_rand(1000,9999));//订单号
-        session('orders.user_uid',session('homeUserInfo.uid'));//下单人ID号
-        session('orders.status',1);//订单状态
-        session('orders.create_at',time());//下单时间
-
-        dd(ession('orders'));
-
+            echo '1111';
     }
 
     /**

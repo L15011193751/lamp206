@@ -47,11 +47,11 @@ Route::resource('admin/cate','admin\CatesController');
 
 
 // 前台商品列表
-Route::resource('home/goods','home\GoodsController');
+Route::resource('/home/goods','home\GoodsController');
 // 购物车
-Route::resource('home/cart','home\CartController');
+Route::resource('/home/cart','home\CartController');
 // 前台订单
-Route::resource('home/orders','home\OrdersController');
+Route::resource('/home/orders','home\OrdersController');
 
 
 
