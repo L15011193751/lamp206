@@ -42,9 +42,6 @@ Route::get('/admin','Admin\IndexController@index');
 
 
 
-//类别
-Route::resource('admin/cate','admin\CatesController');
-
 
 // 前台商品列表
 Route::resource('home/goods','home\GoodsController');
@@ -76,3 +73,13 @@ Route::resource('/admin/orders','Admin\OrdersController');
 
 
 
+//后台类别
+Route::resource('/admin/cate','admin\CatesController');
+//后台轮播
+Route::resource('/admin/lunbo','admin\LunboController');
+
+//前台首页
+Route::get('','home\FirstController@index');
+
+//后台广告
+Route::resource('/admin/adver','admin\AderController');

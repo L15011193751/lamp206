@@ -12,7 +12,7 @@ class Cates extends Model
 
     protected $table='cate';
     protected $pk='id';
-    public $timestamps='false';
+    public $timestamps=false;
 
     protected $fillable=[
      'cname','pid','path'

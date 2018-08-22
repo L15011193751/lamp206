@@ -91,7 +91,7 @@
         
         <!-- Sidebar Wrapper -->
         <div id="mws-sidebar">
-        
+        <div style="position:relative; height:600px; overflow:auto">
             <!-- Hidden Nav Collapse Button -->
             <div id="mws-nav-collapse">
                 <span></span>
@@ -119,12 +119,33 @@
                         </ul>
                     </li>
 
+                </ul> 
+                   
+            </div> 
 
-                     <li class="active">
-                        <a href="#"><i class="icon-user"></i> 分类管理</a>
+          
+            <div id="mws-navigation"> 
+                   <ul> 
+                     <li >
+                        <a href="#"><i class="icon-th"></i> 分类管理</a>
                         <ul>
                             <li><a href="/admin/cate/create">添加分类</a></li>
                             <li><a href="/admin/cate">分类列表</a></li>
+                           
+                        </ul>
+                    </li>
+
+                </ul>
+            </div>
+
+
+             <div id="mws-navigation"> 
+                   <ul> 
+                     <li >
+                        <a href="#"><i class="icon-calendar"></i> 轮播管理</a>
+                        <ul>
+                            <li><a href="/admin/lunbo/create">添加轮播</a></li>
+                            <li><a href="/admin/lunbo">轮播列表</a></li>
                            
                         </ul>
                     </li>
@@ -153,26 +174,33 @@
                     </li>
                 </ul>
             </div>
+
+            <div id="mws-navigation">
+                <ul>
+                    <li>
+                        <a href="#"><i class="icon-picture"></i>广告管理</a>
+                        <ul>
+                            <li><a href="/admin/adver/create">添加广告</a></li>  
+                            <li><a href="/admin/adver">浏览广告</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+
         </div>
-        
+      
+
+    </div>
         <!-- Main Container Start -->
         <div id="mws-container" class="clearfix">
         
             <!-- 内容开始 -->
             <div class="container">
                 
-                @if(session('success'))
-                <!-- 读取跳转信息 -->
-                <div class="mws-form-message success">
-                     {{ session('success') }}                   
-                </div>
-                @endif
-
-                @if(session('error'))
-                <div class="mws-form-message error">
-                     {{ session('error') }}                   
-                </div>
-                @endif
+              
+           
+              
 
                 @section('container')
                 

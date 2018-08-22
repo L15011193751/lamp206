@@ -19,23 +19,25 @@ class CatesController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request)
+
     {
-        //
 
-        $res=Cates::select(DB::raw('*,concat(path,id) as paths'))->
-            orderBy('paths')->
-            get();
+        
+        // dd(111111);->where('cname','like','%'.$request->input('search').'%')'num',
+        $res=Cates::where('cname','like','%'.$request->input('search').'%')->select(DB::raw('*,concat(path,id) as paths'))->
+        orderBy('paths','asc')->paginate(10);
 
-
-
-        foreach ($res as $k=>$v ){
-            $n=substr_count($v->path,',')-1;
-           $v->cname=str_repeat('&nbsp;',$n*5).'|--'.$v->cname;
-
-
+        foreach($res as $k=>$v){
+            $n=substr_count($v->path, ',')-1;
+            if($n != 0){
+               $v->cname=str_repeat('&nbsp;',$n*5).'|--'.$v->cname;
+            }  
         }
 
-        return view('admin.cate.index',['res'=>$res,'title'=>'分类']);
+
+
+               return view('admin.cate.index',['res'=>$res,'title'=>'分类浏览','request'=>$request]);
+     
 
     }
 
@@ -47,9 +49,21 @@ class CatesController extends Controller
     public function create()
     {
         //
-    $res=Cates::all();
 
-        return view('admin.cate.add',['title'=>'分类添加','res'=>$res]);
+     $res = Cates::select(DB::raw('*,concat(path,id) as paths'))->
+            orderBy('paths','asc')->
+            get();
+
+           foreach($res as $k=>$v){
+            $n=substr_count($v->path,',')-1;
+            $v->cname=str_repeat('&nbsp;',$n*5).'|--'.$v->cname;
+
+
+        }
+
+
+       return view('admin.cate.add',['title'=>'添加','res'=>$res]);
+    
     }
 
     /**
@@ -61,28 +75,35 @@ class CatesController extends Controller
     public function store(Request $request)
     {
         //接受变单数
+        $res=$request->except('_token');
 
-      $res = $request->except('_token');
-       if($res['pid'] == '0'){
+        dump($res);
+
+       
+        if($res['pid'] == 0){
 
             $res['path'] = '0,';
 
         }else{
-          $foo=Cates::where('id',$res['pid'])->first();
 
-          $res['path'] = $foo->path.$foo->id.',';
-          
+            $foo = Cates::where('id',$res['pid'])->first();
+
+            $res['path'] = $foo->path.$foo->id.',';
         }
 
-        $data=Cates::create($res);
-        if($data){
-
-            return redirect('/admin/cate')->with('success','添加成功');
-        }else{}
-
-            return back()->with('error','添加失败');
+            $data=Cates::create($res);
 
 
+         if($data)
+        {        
+           return redirect('/admin/cate')->with('success','添加成功');
+
+         }else{
+
+
+        return back()->with('error','失败');
+       }
+  
     }
 
     /**
@@ -104,30 +125,20 @@ class CatesController extends Controller
      */
     public function edit($id)
     {
-        
+       $info=Cates::find($id);
+        //dump($info);
 
-       $info = Cates::find($id);
-
-        $res=Cates::select(DB::raw('*,concat(path,id) as paths'))->
-            orderBy('paths')->
-            get();
+        $res= Cates::select(DB::raw('*,concat(path,id) as paths'))->orderBy('paths','asc')->get();
 
 
-
-        foreach ($res as $k=>$v ){
+        foreach($res as $k=>$v){
             $n=substr_count($v->path,',')-1;
-           $v->cname=str_repeat('&nbsp;',$n*5).'|--'.$v->cname;
+            $v->cname=str_repeat('&nbsp;',$n*5).'|--'.$v->cname;
 
 
         }
-
-
-        return view('admin.cate.edit',
-            [
-                'title'=>'分类修改',
-                'res'=>$res,
-                'info'=>$info
-            ]);
+            return view('admin.cate.edit',['res'=>$res,'title'=>"修改",'info'=>$info]);
+       
     }
 
     /**
@@ -141,21 +152,21 @@ class CatesController extends Controller
     {
         //
 
+        $res=$request->except('_token','_method');
 
+        //dump($res);
+        $data=Cates::where('id',$id)->update($res);
+        if($data){
+        
+        return redirect('/admin/cate')->with('success','修改成功');
 
-        $res = $request->except('_token','_method');
+        }else{
 
-        try{
-            $data = Cates::where('id',$id)->update($res);
-
-            if($data){
-                return redirect('/admin/cate')->with('success','修改成功');
-            }
-        }catch(\Exception $e){
-
-            return back();
+         return back()->with('error','修改失败');
 
         }
+              
+  
     }
 
     /**
@@ -166,27 +177,44 @@ class CatesController extends Controller
      */
     public function destroy($id)
     {
-       $cate=Cates::where('pid','=',$id)->first();
-
-        //
+      // echo $id;
         //判断有没有子类
-        //如果有子类不能删除
-        if($cate){
-            return redirect('/admin/cate')->with('error','删除失败');
-        }
 
-        try {
+
+         $cate=Cates::where('pid',$id)->first();
+
+        if(!empty($cate)){
+
+            return back()->with('error','当前类别下有子分分类，不能删除');
+                exit;
+
+        }
+        
+        
+      /* if(Cates::destroy($id)){
+
+            return redirect('/admin/cate')->with('success','删除成功');
+       }else{
+             return back()->with('error','删除失败');
+       }      
+*/
+
+
+       
+    
             $res = Cates::where('id',$id)->delete();
             //如果没有就可以删除
 
             if($res){
                 return redirect('/admin/cate')->with(['success'=>'删除成功']);
-            }
+            }else{
 
-        } catch (\Exception $e) {
+       
 
                 return redirect('/admin/cate')->with('error','删除失败');
         }
-
-    }
+     
+    
+       
+}
 }
