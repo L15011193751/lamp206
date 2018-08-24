@@ -203,7 +203,7 @@
 											<a href="/home/goods/{{ $v['id'] }}">
 												<img src="{{ $v['gpic'] }}" />
 											</a>
-											<p class="title fl">{{ $v['gdesc'] }}</p>
+											<p class="title fl">{{ $v['gname'] }}</p>
 											<p class="price fl">
 												<b>¥</b>
 												<strong>{{ $v['price'] }}</strong>
@@ -225,31 +225,32 @@
 
 								<li>
 									<div class="i-pic check">
-										<img src="/home/images/20160817140529_3564.png" />
-										<p class="check-title">1F爱情鲜花</p>
+										<img src="/home/images/20161019180631_5036.png" />
+										<p class="check-title">1F爱情爱情</p>
 									</div>
 								</li>
 								<li>
 									<div class="i-pic check">
+										<img src="/home/images/20160817140529_3564.png" />
+										<p class="check-title">2F爱情鲜花</p>
+										
+									</div>
+								</li>
+								
+								<li>
+									<div class="i-pic check">
 										<img src="/home/images/20160817164500_6689.png" />
-										<p class="check-title">2F生日鲜花</p>
+										<p class="check-title">3F生日鲜花</p>
 										
 									</div>
 								</li>
 								<li>
 									<div class="i-pic check">
-										<img src="/home/images/cp.jpg" />
-										<p class="check-title">萨拉米 1+1小鸡腿</p>
-										<p class="price fl">
-											<b>¥</b>
-											<strong>29.90</strong>
-										</p>
-										<p class="number fl">
-											销量<span>1110</span>
-										</p>
+										<img src="/home/images/20160822174258_5826.png" />
+										<p class="check-title">4F礼盒鲜花</p>
+										
 									</div>
 								</li>
-
 							</div>
 
 							<div class="clear"></div>
@@ -302,98 +303,7 @@
 
 		<!--菜单 -->
 		<div class=tip>
-			<div id="sidebar">
-				<div id="wrap">
-					<div id="prof" class="item">
-						<a href="#">
-							<span class="setting"></span>
-						</a>
-						<div class="ibar_login_box status_login">
-							<div class="avatar_box">
-								<p class="avatar_imgbox"><img src="/home/images/no-img_mid_.jpg" /></p>
-								<ul class="user_info">
-									<li>用户名：sl1903</li>
-									<li>级&nbsp;别：普通会员</li>
-								</ul>
-							</div>
-							<div class="login_btnbox">
-								<a href="#" class="login_order">我的订单</a>
-								<a href="#" class="login_favorite">我的收藏</a>
-							</div>
-							<i class="icon_arrow_white"></i>
-						</div>
-
-					</div>
-					<div id="shopCart" class="item">
-						<a href="#">
-							<span class="message"></span>
-						</a>
-						<p>
-							购物车
-						</p>
-						<p class="cart_num">0</p>
-					</div>
-					<div id="asset" class="item">
-						<a href="#">
-							<span class="view"></span>
-						</a>
-						<div class="mp_tooltip">
-							我的资产
-							<i class="icon_arrow_right_black"></i>
-						</div>
-					</div>
-
-					<div id="foot" class="item">
-						<a href="#">
-							<span class="zuji"></span>
-						</a>
-						<div class="mp_tooltip">
-							我的足迹
-							<i class="icon_arrow_right_black"></i>
-						</div>
-					</div>
-
-					<div id="brand" class="item">
-						<a href="#">
-							<span class="wdsc"><img src="/home/images/wdsc.png" /></span>
-						</a>
-						<div class="mp_tooltip">
-							我的收藏
-							<i class="icon_arrow_right_black"></i>
-						</div>
-					</div>
-
-					<div id="broadcast" class="item">
-						<a href="#">
-							<span class="chongzhi"><img src="/home/images/chongzhi.png" /></span>
-						</a>
-						<div class="mp_tooltip">
-							我要充值
-							<i class="icon_arrow_right_black"></i>
-						</div>
-					</div>
-
-					<div class="quick_toggle">
-						<li class="qtitem">
-							<a href="#"><span class="kfzx"></span></a>
-							<div class="mp_tooltip">客服中心<i class="icon_arrow_right_black"></i></div>
-						</li>
-						<!--二维码 -->
-						<li class="qtitem">
-							<a href="#none"><span class="mpbtn_qrcode"></span></a>
-							<div class="mp_qrcode" style="display:none;"><img src="/home/images/weixin_code_145.png" /><i class="icon_arrow_white"></i></div>
-						</li>
-						<li class="qtitem">
-							<a href="#top" class="return_top"><span class="top"></span></a>
-						</li>
-					</div>
-
-					<!--回到顶部 -->
-					<div id="quick_links_pop" class="quick_links_pop hide"></div>
-
-				</div>
-
-			</div>
+			
 			<div id="prof-content" class="nav-content">
 				<div class="nav-con-close">
 					<i class="am-icon-angle-right am-icon-fw"></i>

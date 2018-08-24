@@ -64,6 +64,6 @@
                 </form>
             </div>      
         </div>
-
+    
     <!-- JavaScript Plugins -->
 @endsection

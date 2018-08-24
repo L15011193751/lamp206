@@ -10,7 +10,7 @@ use App\User;
 use Hash;
 use App\Models\Userdetail;
 use DB;
-use App\Http\Requests\UserStoreRequest;
+{{ $data['gname'] }}
 
 class UserController extends Controller
 {

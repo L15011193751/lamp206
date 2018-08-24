@@ -16,24 +16,22 @@ class CartController extends Controller
      */
     public function index(Request $request)
     {
-       //  //提取
-       //  $carts = $request->session()->get('cart.id');
-       //  // 求总金额,总数量
-       //  $sum = 0;
-       //  $cnt = 0;
-       //  foreach ($carts as $k => $v)
-       //  {
-       //      // 总净额
-       //      $sum += $v->price*$v->cnt;
-       //      // 总数量
-       //      $cnt += $v->cnt;
-       //  }
-       // // 数据存入session
-       //  session()->push("orders.sum",$sum);
-       //  $request->session()->forget('orders.sum');
-       //  session()->push("orders.sum",$sum);
-       //  session()->push("orders.cnt",$cnt);
-       
+        $carts = $request->session()->get('cart.id');
+        $sum = 0;
+        $cnt = 0;
+        foreach ($carts as $k => $v)
+        {
+            // 总净额
+            $sum += $v->price*$v->cnt;
+            // 总数量
+            $cnt += $v->cnt;
+        }
+        session()->push("orders.sum",$sum);
+        $request->session()->forget('orders.sum');
+        session()->push("orders.sum",$sum);
+        session()->push("orders.cnt",$cnt);
+
+        return view('home/cart/index',['carts'=>$carts,'cnt'=>$cnt,'sum'=>$sum]);
     }
 
     /**
@@ -43,36 +41,8 @@ class CartController extends Controller
      */
     public function create(Request $request)
     {   
-        // 获取详情页的id 
-        $red = $request -> input('id');
-
-        // 获取数据库的id'
-        $data = Goods::find($red);
-        // 获取数量
-        $data->cnt = $request -> input('cnt');  
-        // 数据存入session 
-        session()->push('cart.id',$data);
-
-        $carts = $request->session()->get('cart.id');
-         // 求总金额,总数量
-        $sum = 0;
-        $cnt = 0;
-
-        foreach ($carts as $k => $v)
-        {
-            // 总净额
-            $sum += $v->price*$v->cnt;
-            // 总数量
-            $cnt += $v->cnt;
-        }
-
-       // 数据存入session
-        // session()->push("orders.sum",$sum);
-        // $request->session()->forget('orders.sum');
-        session()->push("orders.sum",$sum);
-        session()->push("orders.cnt",$cnt);
        
-        return view('home/cart/index',['carts'=>$carts,'cnt'=>$cnt,'sum'=>$sum]);
+
     }
 
     /**
@@ -83,7 +53,19 @@ class CartController extends Controller
      */
     public function store(Request $request)
     {
+         // 获取详情页的id 
+        $red = $request -> input('id');
+
+        // 获取数据库的id'
+        $data = Goods::find($red);
+        // 获取数量
+        $data->cnt = $request -> input('cnt'); 
         
+        // 数据存入session 
+        session()->push('cart.id',$data);
+        // 数据存入session
+       
+        return redirect('/home/cart');
     }
 
     /**
@@ -126,16 +108,13 @@ class CartController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy( $id)
+    public function destroy(Request $request, $id)
     {
-        // 删除
-      
-        echo '11111111111111';
-        // session('cart'.$id,null);
-      
-        // $red = $request->session()->forget($id);
-        // $request->session()->forget('key');
-         // dd($red);
-    }   // return redirect('/home/cart');
-   
+       $res = $request->session()->flush();
+        if ($res){
+            return redirect()->with('success','删除成功');  
+        }else{
+            return back()->with('error','删除失败');
+        } 
+    }   
 }

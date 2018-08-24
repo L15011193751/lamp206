@@ -40,8 +40,23 @@
                float: right;
             }
 
-</style>
-</head>
+                        </style>
+                        <link rel="stylesheet" type="text/css" href="/home/layui-v2.3.0/layui/css/layui.css">
+                        <script type="text/javascript" src="/home/layui-v2.3.0/layui/layui.js"></script>
+                        <style type="text/css">
+                        html,body{height:auto;}
+                        #province select{margin-left:10px; width:100px}
+                        </style>
+                        </head>
+                         <script>
+                            //一般直接写在一个js文件中
+                            layui.use(['layer', 'form'], function(){
+                              var layer = layui.layer
+                              ,form = layui.form;
+                              
+                             
+                            });
+                        </script> 
 <body>
    
    
@@ -73,7 +88,7 @@
             <div id="logo">
                 <div class="logo cssEdite" type="logo" id="logo_1" >
 <a href="/">
-<img src="/sy/picture/201608221646389704980_1.png" />
+<img src="/sy/images/201608221646389704980.png" />
 </a>
 </div>
 
@@ -91,9 +106,7 @@
 
             <div class="OrderSubmit">
                 <table class="MessageError" cellspacing="0" cellpadding="0" border="0" width="100%">
-   <!--  <tr>
-        <td style="padding-right: 3px;"><img src="/sy/picture/warning_1.gif" align="absmiddle" style="padding-right: 3px;" /></td><td align="left" width="100%"><nobr>购物车中已经没有任何商品<nobr/></td>
-    </tr> -->
+   
 </table>
                 <div class="cart_Order_deliver">
                     <h3>请选择收货地址</h3>
@@ -115,20 +128,21 @@
                     
                 
 </div> 
+                    <div style=" background: #D1CDCD;border: 3px solid #E50D0D">
+                         @if (count($errors) > 0)
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
 
+                    </div>
+                   
 
-                @if(session('success'))
-                <!-- 读取跳转信息 -->
-                <div class="mws-form-message success">
-                     {{ session('success') }}                   
-                </div>
-                @endif
-
-                @if(session('error'))
-                <div class="mws-form-message error">
-                     {{ session('error') }}                   
-                </div>
-                @endif
+                
                 <div class="comon_submmitorder_address2">
                     <input type="hidden" id="hdcopyshipping" value="SubmmitOrder_txtShipTo,SubmmitOrder_txtCellPhone,SubmmitOrder_txtTelPhone,SubmmitOrder_txtZipcode,SubmmitOrder_txtAddress" />
                     
@@ -136,8 +150,7 @@
 
 
  <form action="/home/orders" method="post">  
-      
- 
+     {{ csrf_field() }}
                <div  style=" font-size: 20px;">
                    <div class="cart_Order_address" id="user_shippingaddress" style="">
                     <div class="con">
@@ -154,16 +167,24 @@
                             </li>
                             <li>
                                 <h2><em>*</em>收花人手机：</h2>
-                                <input name="tel" type="text" value="13082200375" id="SubmmitOrder_txtCellPhone" class="textform form-control" validategroup="default"> 
+                                <input name="phone" type="text" value="" id="" class="textform form-control" validategroup="default" placeholder=""> 
                                 <span id="SubmmitOrder_txtCellPhoneTip"></span>
                             </li>
                             <li>
                                 <h2><em>*</em>收花地址：</h2>
-                                <span id="SubmmitOrder_dropRegions"><div class="address_wap"><div class="dp_border" style="display: none;"></div><div class="dp_address"><a id="province_top" href="javascript:" class="dropdown_box"><span id="provincename" class="dropdown_selected">请选择省</span><span class="dropdown_button"></span></a><a id="city_top" href="javascript:" class="dropdown_box"><span id="cityname" class="dropdown_selected">市：</span><span class="dropdown_button"></span></a><a id="area_top" href="javascript:" class="dropdown_box"><span id="areaname" class="dropdown_selected">区/县：</span><span class="dropdown_button"></span></a><a id="street_top" href="javascript:" class="dropdown_box"><span id="streetname" class="dropdown_selected">街道</span><span class="dropdown_button"></span></a>
-                                </div>
-                                </div>
-                                <link id="SubmmitOrder_regionStyle" rel="stylesheet" href="/WebResource.axd?d=8v9m_PJYMjdpLH1CQa0HRRf6KEVnnbX_q1OAjcwz52T5VqZ5xv5n2EBK4fIDyxmAVeYmzR23R0J1w1KrY9tQIZLyUa0f_hBZgMXNAfdjoBORiAsKuWMVGk7_Gt-S1gLdEcSflhWCpYkyhuw6jhdDG0nE5YE1&amp;t=636124900090229874" type="text/css" media="screen"></span><input id="regionSelectorValue" name="regionSelectorValue" value="0" type="hidden" depth="0"><input id="regionIsShift" name="regionIsShift" value="false" type="hidden"><input id="regionSelectorName" name="regionSelectorName" value="" type="hidden"><input id="regionSelectorNull" name="regionSelectorNull" value="-请选择-" type="hidden"><input id="regionDisplayStreet" name="regionDisplayStreet" value="true" type="hidden">
-                                                                <script src="/Utility/SubmitOrderRegion.Helper.js" type="text/javascript"></script>
+                                    <div style="font-size: 16px">
+                                        <div id="province"></div>
+                                        <script type="text/javascript" src="http://lib.h-ui.net/jquery/1.9.1/jquery.min.js"></script>
+                                        <script type="text/javascript" src="/sy/jquery.provincesCity.js"></script>
+                                        <script type="text/javascript" src="/sy/provincesData.js"></script>
+                                        <script type="text/javascript">
+                                        /*调用插件*/
+                                        $(function(){
+                                            $("#province").ProvinceCity();
+                                        });
+                                        </script>   
+                                    </div>
+                                                         
                             </li>
                             <li>
                                 <h2><em>*</em>详细地址：</h2>
@@ -171,12 +192,13 @@
                             </li>
                             <li>
                                 <h2><em>*</em>订花人姓名：</h2>
-                                <input name="username" type="text" id="SubmmitOrder_txtShipFrom" class="textform form-control">
+                                <input name="
+                                uname" type="text" id="SubmmitOrder_txtShipFrom" class="textform form-control">
                                 <span id="SubmmitOrder_txtShipFromTip"></span>
                             </li>
                             <li>
                                 <h2><em>*</em>订花人手机：</h2>
-                                <input name="phone" type="text" id="SubmmitOrder_txtCellPhoneFrom" class="textform form-control"> 
+                                <input name="tel" type="text" id="SubmmitOrder_txtCellPhoneFrom" class="textform form-control"> 
                                 <span id="SubmmitOrder_txtCellPhoneFromTip"></span>
                             </li>
 
@@ -229,10 +251,25 @@
                                 </div>
                             </div>
                         </div>
+
+
+                       
+
+
                         <div class="Order_deliver_time">
                             <h2>送货日期 :</h2>
-                            <input name="SendDate" type="text" id="SubmmitOrder_txtSendDate" class="textform form-control" style="width:170px;height:28px;padding:0;padding-left: 10px;" onclick="WdatePicker({dateFmt:&#39;yyyy-MM-dd&#39;})" />
+                            <input name="SendDate" type="text" id="SubmmitOrder_txtSendDate" class="textform form-control" style="width:170px;height:28px;padding:0;padding-left: 10px;" onclick="WdatePicker({dateFmt:&#39;yyyy-MM-dd&#39;})" autocomplete="off" placeholder="请选择日期" />
                         </div>
+                        <script>
+                            layui.use('laydate', function(){
+                              var laydate = layui.laydate;
+                              
+                              //执行一个laydate实例
+                              laydate.render({
+                                elem: '#SubmmitOrder_txtSendDate' //指定元素
+                              });
+                            });
+                        </script>
                         <div class="Order_deliver_time">
                             <h2>送货时间 :</h2>
                             <select name="ToDate" id="SubmmitOrder_drpShipToDate" style="height: 28px; border: 1px solid #e5e5e5; text-align: center; color: #585858; width: 170px; overflow: hidden; ">
@@ -250,6 +287,8 @@
                         </select>
                         </div>
                         </div>
+
+
                 </div>
                 <!-- end -->
             </div>
@@ -269,7 +308,7 @@
 
         <div class="cart_Order_info">
             <div id="divProductList">
-                <h3>商品清单<a href="/ShoppingCart.aspx" class="return">返回改购物车</a></h3>
+                <h3>商品清单<a href="/home/cart/" class="return">返回改购物车</a></h3>
                 <div class="cart_Order_info2">
                     
                 <div class="list">
@@ -333,9 +372,9 @@
                     <div class="fl">
                         
                         <div class="">
-                            <em><h2>卡片留言：</h2>&nbsp;</em>
-                            <span>
-                                <textarea name="SubmmitOrder$txtMessage" rows="6" cols="50" id="SubmmitOrder_txtMessage">
+                            <em><h2>卡片留言：</h2>&nbsp;</em>             
+                            <span style="font-size: 20px;color: #34AFE7 " >
+                                <textarea name="umsg" rows="4" cols="50" placeholder="您想说的话(50字以内)....">
                             </textarea>
                             </span>
                         </div>
@@ -367,9 +406,6 @@
                 </div>
             </div>
         </div>
-    
-        
-    
         <div class="cart_Order_submit2 ">
             <button  class="cart_Order_submit2" type="submit"> 提交订单</button>
         </div>
@@ -569,11 +605,7 @@
         <div class="Copyright">
             
             
-            爱尚美网络科技有限公司 蜀ICP备15011281号
-        </div>
-    <!--     <script type="text/javascript">
-        var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
-        document.write(unescape("%3Cspan id='cnzz_stat_icon_1260081895'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1260081895%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));
-</script> -->
+            鲜花网 蜀ICP备15011281号
+  
     </div>
     <!--bottom结束-->

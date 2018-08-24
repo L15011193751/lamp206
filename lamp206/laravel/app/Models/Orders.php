@@ -10,9 +10,11 @@ class Orders extends Model
     public  $table = 'orders';
 
     // 设置主键
-    public $primaryKey = 'oid';
-    public function detail()
+    public $primaryKey = 'id';
+ 	//关联  订单详情
+	public function od()
 	{
-		return $this->hasMany('Orders_detail','orders_oid','oid');
+		return $this->hasOne('App\Models\Ordersdetail','oid');
 	}
+
 }

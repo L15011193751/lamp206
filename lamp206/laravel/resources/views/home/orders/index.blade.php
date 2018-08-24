@@ -85,8 +85,8 @@
         <div class="cart_h">
             <div id="logo">
                 <div class="logo cssEdite" type="logo" id="logo_1" >
-<a href="/">
-<img src="/home/images/logobig.png" />
+<a href="/home/goods/">
+<img src="/sy/images/201608221646389704980.png" />
 </a>
 </div>
 
@@ -130,8 +130,7 @@
 <ul >
     
             <li>
-               <!--  <div class="checkbox"> -->
-                    <!-- <div class="iradio_flat-green checked" id="paymentMode_4" style="width: 220px; height: 50px; background: #FEFEFE;" key="4"> -->
+               
                         
                         <div class="pic" style="width: 220px; height: 60px; margin: 0 auto; "><img style="margin-top:10px;" src="/home/images/360截图16230312092109.png" alt="支付宝"><span>支付宝</span></div>
                     <!-- </div> -->
@@ -334,22 +333,21 @@
             }
         </style>
         <div class="footerbox">
-            <img src="/sy/picture/cxwz_1.gif">
-            <img src="/sy/picture/smyz_1.gif">
-            <img src="/sy/picture/cnnic_1.png">
-            <img src="/sy/picture/pay_1.jpg">
-            <img src="/sy/picture/wchar_1.jpg">
-            <img src="/sy/picture/360_1.jpg">
-            <img src="/sy/picture/erm_1.jpg">
+            <img src="/sy/images/cxwz.gif">
+            <img src="/sy/images/smyz.gif">
+            <img src="/sy/images/cnnic.png">
+            <img src="/sy/images/pay.jpg">
+            <img src="/sy/images/wchar.jpg">
+            <img src="/sy/images/360.jpg">
         </div>
         <div class="footer_link">
             
-           本地订花热线 : 400-901-0239
+           本地订花热线 : 400-00-0000
         </div>
         <div class="Copyright">
             
             
-            爱尚美网络科技有限公司 蜀ICP备15011281号
+            鲜花网 蜀ICP备15011281号
         </div>
     <!--     <script type="text/javascript">
         var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");

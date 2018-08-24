@@ -28,6 +28,8 @@
 
 <!-- Demo Stylesheet -->
 <link rel="stylesheet" type="text/css" href="/mws/css/demo.css" media="screen">
+<link rel="stylesheet" type="text/css" href="/mws/css/paper.css" media="screen">
+
 
 <!-- jQuery-UI Stylesheet -->
 <link rel="stylesheet" type="text/css" href="/mws/jui/css/jquery.ui.all.css" media="screen">
@@ -125,6 +127,17 @@
                         <ul>
                             <li><a href="/admin/cate/create">添加分类</a></li>
                             <li><a href="/admin/cate">分类列表</a></li>
+
+
+                           
+                        </ul>
+                    </li>
+                    <li class="active">
+                        <a href="#"><i class="icon-user"></i> 轮播图管理</a>
+                        <ul>
+                            <li><a href="/admin/lunbo/create">添加轮播图</a></li>
+                            <li><a href="/admin/lunbo">轮播列表</a></li>
+
                            
                         </ul>
                     </li>
@@ -148,6 +161,7 @@
                     <li>
                         <a href="#"><i class="icon-database"></i>订单管理</a>
                         <ul>
+                            <li><a href="/admin/orders/">修改订单</a></li>
                             <li><a href="/admin/orders/">浏览订单</a></li>
                         </ul>
                     </li>
@@ -180,13 +194,18 @@
                 @show
 
             </div>
+        </div>
+    </div>
             <!-- Inner Container End -->
                        
             <!-- Footer -->
+
            <!--  <div id="mws-footer">
                 Copyright Your Website 2012. All Rights Reserved.
             </div> -->
             
+
+           
         </div>
         <!-- Main Container End -->
         

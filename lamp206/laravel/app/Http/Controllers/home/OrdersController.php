@@ -7,7 +7,9 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\Orders;
+use App\Models\Goods;
 use App\Models\Ordersdetail;
+use App\Http\Requests\OrderStoreRequest;
 use DB;
 class OrdersController extends Controller
 {
@@ -22,7 +24,6 @@ class OrdersController extends Controller
         $carts = session('cart.id');
         $sum = session("orders.sum");
       
-       // dd($carts);
        return view('home/orders/settlement',['carts'=>$carts,'sum'=>$sum]);
     }
 
@@ -33,54 +34,26 @@ class OrdersController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create(Request $request)
-    {   // 收货人
-    //     session('orders.rec', $request->input('rec')) ;
-    //     // 联系电话
-    //     session('orders.tel', $request->input('phone')) ;
-    //     // 收货地址
-    //     session('orders.addr', $request->input('addr')) ;
-    //     // 买家留言
-    //     session('orders.umsg', $request->input('umsg')) ;
-    //     // 订单号
-    //     $res = session('orders.oid',date('YmdHis').mt_rand(1000,9999));
-    //     // 下单人id
-    //     session('orders.uid',session('homeUserInfo.uid'));
-    //     //  订单状态
-    //     session('orders.status',1);
-    //     // 下单时间
-    //     session('orders.create_at',time());
+    {  
+
+       // 获取购买商品
+        $order = Orders::get();
+
+        foreach($order as $k=>$v){
+          // 获取gid
+          $gid = $v->od->gid;
         
-
-        DB::beginTransaction(); //开启事务
-         $sum = session("orders.sum");
-         // dd($sum);
-        // 存入数据表
-       
-        $orders = new Orders;
-        $orders -> rec =$request->input('rec');
-        $orders -> addr =$request->input('addr');
-        $orders -> state =1;
-        $orders -> create_at =time();
-       
-        $orders -> save();
-        $red = date('YmdHis').mt_rand(1000,9999);
-        $aa = $request->input('price');
-        // dd($aa);
-        $ordesdetail = new  Ordersdetail;
-        // $ordersdetail -> order_oid =$red;
-        // $ordersdetail -> price = $request->input('price');
-        // $ordersdetail -> cnt = $request->input('cnt');
-
-         // $ordesdetail -> save();
-        // if($res1 && $res2){
-        //     DB::commit(); // 提交事务
-           return view('home.orders.index',['red'=>$red  ,'sum'=>$sum]);
-        // }else{              // 回滚事务
-        //     DB::rollBack();
-        //     return back()->with('error','添加失败');
-        // }
-
-        
+          $odata  =[];
+          // 查找单条数据
+          $data = Goods::find($gid);
+          
+                // 商品图片
+                $odata['gpic'] = $data->gpic;
+                // 商品图片
+                $odata['price'] = $data->price;
+                $odata['gname'] = $data->gname;
+                return view('home.orders.order',['order'=>$order,'odata'=>$odata]);
+        }  
     }
 
     
@@ -90,9 +63,44 @@ class OrdersController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(OrderStoreRequest $request)
     {
-            echo '1111';
+        DB::beginTransaction(); //开启事务
+         $sum = session("orders.sum");
+         $cnt = session("orders.cnt");
+        $red = date('YmdHis').mt_rand(1000,9999);
+        $data = $request->all();
+        $orders = new Orders;
+        $orders->oid = $red;
+        $orders ->rec = $data['rec'];  // 收货人
+        $orders ->addr = $data['addr'];// 收货地址
+        $orders ->phone =  $data['phone'];
+        $orders ->umsg =  $data['umsg'];
+        $orders ->SendDate =  $data['SendDate'];
+        $orders ->ToDate =  $data['ToDate'];
+        $orders ->cnt = $cnt['0'];// 获取总金额  总数量
+        $orders ->sum = $sum['0'];
+        $orders ->state =1; // 状态
+        $res1 = $orders -> save(); // 保存
+
+        $carts = session('cart.id');
+        foreach($carts as $k => $v)
+        {
+            $ordesdetail = new Ordersdetail;
+            $ordesdetail ->oid = $orders->id;
+            $ordesdetail ->order_oid = $red;// 关联订单号 
+            $ordesdetail ->gid = $v['id']; // gid
+            $ordesdetail ->price = $v['price'];//  单价
+            $ordesdetail ->cnt = $v['cnt'];//  数量
+            $res2 =  $ordesdetail -> save();
+        }
+        if($res1 && $res2){
+            DB::commit(); // 提交事务
+           return view('home.orders.index',['red'=> $red ,'sum'=>$sum]);
+        }else{              // 回滚事务
+            DB::rollBack();
+            return back()->with('error','添加失败');
+        }
     }
 
     /**
@@ -136,7 +144,21 @@ class OrdersController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
-    {
-        //
-    }
+    {     
+        
+        DB::beginTransaction();//开启事务
+        // 删除用户
+        $res1 = Orders::destroy($id);
+        // 删除详情
+        $res2 = Ordersdetail::where('oid',$id)->delete();
+        if($res1 && $res2){
+            DB::commit();//提交事务
+             return redirect('/home/orders/order')->with('success','删除成功');
+         }else{
+            DB::rollBack();//回滚事务
+            return back()->with('error','删除失败');
+         }     
+
+
+    }       
 }

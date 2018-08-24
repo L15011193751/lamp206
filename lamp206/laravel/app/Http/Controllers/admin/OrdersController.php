@@ -6,8 +6,9 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use   App\Models\Orders;
-use   App\Models\Orders_detail;
+use App\Models\Orders;
+use App\Models\Ordersdetail;
+use DB;
 class OrdersController extends Controller
 {
     /**
@@ -15,12 +16,12 @@ class OrdersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        // 获取数据
-        $data = Orders::get();
-      
-        return view ('admin.orders.index',['data'=>$data]);
+        // 搜索关键字  分页
+        $search = $request -> input('rec',''); 
+        $data = Orders::where('rec','like','%'.$search.'%')->orderBy('id')->paginate(10);
+        return view ('/admin/orders/index',['data'=>$data,'request'=>$request->all()]);
     }
 
     /**
@@ -63,7 +64,9 @@ class OrdersController extends Controller
      */
     public function edit($id)
     {
-        //
+        // 获取修改表单数据
+        $data = Orders::find($id);
+        return view ('admin/orders/edit',['data'=>$data]);
     }
 
     /**
@@ -74,8 +77,16 @@ class OrdersController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
-        //
+    {   
+        // 获取页面数据
+        $data = $request -> except(['_token','_method']);
+        // 根据条件写入数据库
+        $res = Orders::where('id',$id)->update($data);
+        if($res) {
+            return redirect('/admin/orders')->with('success','修改成功');
+        }else{
+            return back()->with('error','修改失败');
+        }
     }
 
     /**
@@ -86,6 +97,23 @@ class OrdersController extends Controller
      */
     public function destroy($id)
     {
-        //
-    }
+        // 开启事务
+        DB::beginTransaction();
+        // 删除用户
+        $res1 = Orders::destroy($id); 
+        // 删除详情
+        $res2 = Ordersdetail::where('oid',$id)->delete();
+        if($res1 && $res2){
+            //提交事务
+            DB::commit();
+            return redirect('/admin/orders')->with('success','删除成功');
+         }else{
+            //回滚事务
+            DB::rollBack();
+            return back()->with('error','删除失败');
+         }     
+
+
+    }       
+    
 }

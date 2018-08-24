@@ -145,12 +145,5 @@ class GoodsController extends Controller
         }
 
     }
-    public function up()
-    {
-       echo 'sdsds';
-    }
-    public function down()
-    {
-        echo '111';
-    }
+   
 }

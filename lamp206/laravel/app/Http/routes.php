@@ -32,6 +32,13 @@ Route::get('/admin','Admin\IndexController@index');
 
 
 
+//后台分类路由
+Route::resource('admin/cate','admin\CatesController');
+//轮播图路由
+Route::resource('admin/lunbo','admin\LunboController');
+
+
+
 
 
 
@@ -66,9 +73,6 @@ Route::resource('/admin/user','Admin\UserController');
 // 商品浏览
 Route::resource('/admin/goods','Admin\GoodsController');
 
-//上架下架
-// Route::get('/admin/goods','Admin\GoodsController@up');
-// Route::get('/admin/goods','Admin\GoodsController@down');
 
 // 订单
 Route::resource('/admin/orders','Admin\OrdersController');

@@ -16,10 +16,8 @@ class GoodsController extends Controller
      */
     public function index(Request $request)
     {
-        // 获取数据库全部数据
-        // $data = goods::get();
-        
-        // return view('home.goods.index',['data'=>$data]);
+      
+       
         // 搜索关键字
         $search = $request -> input('gname',''); 
         // 获取数据 并且分页

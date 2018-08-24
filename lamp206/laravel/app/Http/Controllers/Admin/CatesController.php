@@ -23,8 +23,8 @@ class CatesController extends Controller
         //
 
         $res=Cates::select(DB::raw('*,concat(path,id) as paths'))->
-            orderBy('paths')->
-            get();
+            orderBy('paths')->paginate(6);
+          
 
 
 
@@ -35,7 +35,7 @@ class CatesController extends Controller
 
         }
 
-        return view('admin.cate.index',['res'=>$res,'title'=>'分类']);
+        return view('admin.cate.index',['res'=>$res ,'title'=>'分类']);
 
     }
 
@@ -48,6 +48,7 @@ class CatesController extends Controller
     {
         //
     $res=Cates::all();
+
 
         return view('admin.cate.add',['title'=>'分类添加','res'=>$res]);
     }

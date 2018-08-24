@@ -46,11 +46,17 @@
         </label>
       </div>
       <div class="dataTables_filter" id="DataTables_Table_1_filter">
-        <label>
-          <font style="vertical-align: inherit;">
-            <font style="vertical-align: inherit;">搜索：</font></font>
-          <input type="text" aria-controls="DataTables_Table_1"></label>
-      </div>
+        
+                  <label>
+                      分类名:
+                      <input type="text" name='search' value="{{$request->search}}" aria-controls="DataTables_Table_1">
+                  </label>
+
+                   
+
+                  <button class='btn btn-info'>搜索</button>
+              </div>
+      
       <table class="mws-datatable-fn mws-table dataTable" id="DataTables_Table_1" aria-describedby="DataTables_Table_1_info">
        
             <tr>
@@ -132,6 +138,7 @@
       
   <div class="paper">
     
-{!$res->links()!}
+ {!!$res->render()!!}
+    
 
 @endsection

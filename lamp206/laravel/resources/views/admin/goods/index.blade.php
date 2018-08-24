@@ -50,11 +50,11 @@
                                         <td>{{ $v['ent'] }}</td>
                                         <td>{{ $v['state'] == 1 ? '上架' : '下架'}}</td>
                                         <td style="display: inline;">
-                                            <form action="/admin/goods/{{ $v['id'] }}/edit" method="get" style="display: inline;">
+                                            <form action="/admin/goods/{{ $v['id'] }}/edit" method="get">
                                                
                                                 <input type="submit" class="btn btn-success table table-hover" value="修改">
                                             </form>
-                                            <form action="/admin/goods/{{ $v['id'] }}" method="post" style="display: inline;">
+                                            <form action="/admin/goods/{{ $v['id'] }}" method="post">
                                                 {{ csrf_field() }}
                                                 {{ method_field('DELETE') }}
                                                 <input type="submit" class="btn btn-warning btn-primary btn-sm" value="删除">
