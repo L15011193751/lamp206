@@ -25,11 +25,13 @@ class OrderStoreRequest extends Request
     {
         return [
             
-            'rec' => 'required|regex:/^[\w]{6,17}$/',        // 收货人名字
-            // 'phone' => 'required|regex:/^[1-9]{1-11}$/',     // 收货人电话
+                   
+            'rec' => 'required',                             // 收货人名字
+            'phone' => 'required|regex:/^[1-9]{1-11}$/',     // 收货人电话
             'addr' => 'required',                            // 收货地址
-            // 'uname' => 'required|regex:/^[\w]{5,17}$/',      // 下单人名字
-            // 'tel' => 'required|regex:/^[1-9]{1-11}$/',       // 下单人电话
+            'uname' => 'required',                           // 下单人名字
+            'tel' => 'required|regex:/^[1-9]{1-11}$/',       // 下单人电话
+           
             // 'SendDate' => 'required',                        // 收货日期
             // 'TodDate' => 'required',                         // 收货时间
         ];

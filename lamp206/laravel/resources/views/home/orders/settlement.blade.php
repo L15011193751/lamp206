@@ -192,8 +192,7 @@
                             </li>
                             <li>
                                 <h2><em>*</em>订花人姓名：</h2>
-                                <input name="
-                                uname" type="text" id="SubmmitOrder_txtShipFrom" class="textform form-control">
+                                <input name="uname" type="text" id="SubmmitOrder_txtShipFrom" class="textform form-control">
                                 <span id="SubmmitOrder_txtShipFromTip"></span>
                             </li>
                             <li>
@@ -254,11 +253,11 @@
 
 
                        
-
+                            <!-- onclick="WdatePicker({dateFmt:&#39;yyyy-MM-dd&#39;} -->
 
                         <div class="Order_deliver_time">
                             <h2>送货日期 :</h2>
-                            <input name="SendDate" type="text" id="SubmmitOrder_txtSendDate" class="textform form-control" style="width:170px;height:28px;padding:0;padding-left: 10px;" onclick="WdatePicker({dateFmt:&#39;yyyy-MM-dd&#39;})" autocomplete="off" placeholder="请选择日期" />
+                            <input name="SendDate" type="text" id="SubmmitOrder_txtSendDate" class="textform form-control" style="width:170px;height:28px;padding:0;padding-left: 10px;" )" autocomplete="off" placeholder="请选择日期" />
                         </div>
                         <script>
                             layui.use('laydate', function(){
