@@ -116,9 +116,10 @@ class CartController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */ 
-    public function ajaxcart(Response $Response)
+    public function ajaxcart(Request $request)
     {
-        $id = $Response -> input('id');
+        $id = $request -> input('id');
+        // return $id;
         $res = $request->session()->forget($id);
         if($res){
             echo 'success';

@@ -132,6 +132,14 @@
                                             <label for="J_CheckBox_170037950254"></label>
                                         </div>
                                     </li>
+             <script type="text/javascript">
+
+                $('#checkbox_id').click(function(){
+                    $('ul li div input:checkbox').attr({'checked':true});
+
+                });
+            </script>
+                                  
                                     <li class="td td-item">
                                         <div class="item-pic">
                                             <a href="#" target="_blank" data-title="美康粉黛醉美东方唇膏口红正品 持久保湿滋润防水不掉色护唇彩妆" class="J_MakePoint" data-point="tbcart.8.12">
@@ -187,10 +195,10 @@
                                     </li>
                                    <script>
                                         function del(id,obj){
-
+                                            // console.log(id);
                                         $.get("/home/ajaxcart",{'id':id},function(msg){
+                                            console.log(msg);return;
                                             if(msg == 'success'){
-
                                                obj.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.romove();
                                             }else{
                                                 alert('删除失败');
@@ -198,12 +206,12 @@
                                         },'html');
                                      }
                                 </script>
-                                    <li class="td td-op"> 
+                                    <!-- <li class="td td-op">  -->
                                              <a href="" onclick="del('{{ $v->id }}',this)">
-                                                  <button type ="submit" onclick="return confirm('确认要删除这个商品吗')">删除</button>
+                                                  <button type ="submit" onclick="return confirm('确认要删除这个商品吗')">删除1111</button>
                                              </a>                               
-                                        </div> 
-                                    </li>
+                                        <!-- </div>  -->
+                                    <!-- </li> -->
                                 </ul>       
                             </div>
                         </div>
@@ -277,14 +285,7 @@
 
                   
                 </script>
-                <script type="text/javascript">
-
-                    $('.checkbox_cart_btn').click(function(){
-                        $('ul li div input:checkbox').attr({'checked':true});
-
-                    });
-                </script>
-              
+               
 
                 <div class="footer">
                     <div class="footer-hd">
@@ -320,7 +321,7 @@
                     <a href="javascript:;" title="关闭" class="close">×</a>
                 </div>
                 <div class="theme-popbod dform">
-                    <form class="theme-signin" name="loginform" action="" method="post">
+                    <!-- <form class="theme-signin" name="loginform" action="" method="post"> -->
 
                         <div class="theme-signin-left">
 
@@ -365,7 +366,7 @@
                             </div>
                         </div>
 
-                    </form>
+                    <!-- </form> -->
                 </div>
             </div>
         <!--引导 -->
