@@ -50,31 +50,6 @@ Route::resource('/admin/orders','Admin\OrdersController');
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
    
 //前台路由
 //前台首页
