@@ -10,7 +10,7 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-<<<<<<< HEAD
+
 // DB::listen(function($sql, $bindings, $time){
 //      //写入sql
 //      dump($sql);
@@ -47,7 +47,6 @@ Route::resource('/admin/user','Admin\UserController');
 Route::resource('/admin/goods','Admin\GoodsController');
 // 订单
 Route::resource('/admin/orders','Admin\OrdersController');
-=======
 
 
 
@@ -73,7 +72,8 @@ Route::resource('/admin/orders','Admin\OrdersController');
 
 
 
->>>>>>> origin/zz2544462508
+
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -103,8 +103,8 @@ Route::get('/order/orderinfo','home\OrdersController@orderinfo');
  
 
 
-<<<<<<< HEAD
-=======
+
+
 
 //中间件
 Route::group(['middleware'=>'login'],function(){
@@ -126,4 +126,4 @@ Route::post('/admin/dologin','Admin\LoginController@dologin');
 
 // Route::resource('/admin/login','Admin\LoginController');
 //中间件
->>>>>>> origin/zz2544462508
+
