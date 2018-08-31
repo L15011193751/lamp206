@@ -15,11 +15,13 @@
 
 		<script src="/home/AmazeUI-2.4.2/assets/js/jquery.min.js"></script>
 		<script src="/home/AmazeUI-2.4.2/assets/js/amazeui.js"></script>
+		<script src="/sy/ajax3.0-min.js"></script>
 
 	</head>
 
 	<body>
 		<!--头 -->
+		 <
 		<header>
 			<article>
 				<div class="mt-logo">
@@ -52,7 +54,8 @@
 
 						<div class="nav white">
 							<div class="logoBig">
-								<li><img src="/home/images/logobig.png" /></li>
+								<a href="/home/goods"><li><img src="/sy/images/201608221646389704980.png" /></li></a>
+								
 							</div>
 
 							<div class="search-bar pr">
@@ -94,7 +97,7 @@
 
 						<!--标题 -->
 						<div class="am-cf am-padding">
-							<div class="am-fl am-cf"><strong class="am-text-danger am-text-lg">订单管理</strong> / <small>Order</small></div>
+							<div class="am-fl am-cf"><strong class="am-text-danger am-text-lg">我的订单</strong> / <small></small></div>
 						</div>
 						<hr/>
 
@@ -102,10 +105,7 @@
 
 							<ul class="am-avg-sm-5 am-tabs-nav am-nav am-nav-tabs">
 								<li class="am-active" style="width: 100%"><a href="#tab1">所有订单</a></li>
-								<!-- <li><a href="#tab2">待付款</a></li>
-								<li><a href="#tab3">待发货</a></li>
-								<li><a href="#tab4">待收货</a></li>
-								<li><a href="#tab5">待评价</a></li> -->
+								
 							</ul>
 
 							<div class="am-tabs-bd">
@@ -126,23 +126,24 @@
 										<div class="th th-amount">
 											<td class="td-inner">合计</td>
 										</div>
-										<div class="th th-status">
-											<td class="td-inner">交易状态</td>
-										</div>
+										
 										<div class="th th-change">
 											<td class="td-inner">交易操作</td>
 										</div>
 									</div>
-									
+					
 									<div class="order-main">
 										<div class="order-list">
 											
+										@foreach($data as $k => $v)
+											
 											<!--交易成功-->
 											<div class="order-status5">
-												@foreach($order as $k => $v)
+												
 												<div class="order-title">
-													<div class="dd-num">订单编号：<a href="javascript:;">{{ $v['oid'] }}</a></div>
-													<span>成交时间：{{ $v['created_at'] }}</span>
+													<div class="dd-num">订单编号：<a href="javascript:;">{{ $v->order_oid }}
+													</div>
+													<span>成交时间：{{ $v->created_at }}</span>
 													<!--    <em>店铺：小桔灯</em>-->
 												</div>
 											
@@ -153,15 +154,15 @@
 															<li class="td td-item">
 																<div class="item-pic">
 																	<a href="#" class="J_MakePoint">
-																		<img src="{{ $odata['gpic'] }}" class="itempic J_ItemImg">
+																		<img src="{{ $v->gpic }}" class="itempic J_ItemImg">
 																	</a>
 																</div>
 																<div class="item-info">
 																	<div class="item-basic-info">
 																		<a href="#">
-																			<p></p>{{ $odata['gname'] }}
-																			<p class="info-little">颜色：12#川南玛瑙
-																				<br/>包装：裸装 </p>
+																			<p>{{ $v->gname }}</p>
+																			<p class="info-little">
+																				<br/> </p>
 																		</a>
 																	</div>
 																</div>
@@ -169,12 +170,12 @@
 
 															<li class="td td-price">
 																<div class="item-price">
-																	{{ $odata['price'] }}
+																	{{ $v->price }}
 																</div>
 															</li>
 															<li class="td td-number">
 																<div class="item-number">
-																	<span>×</span>{{ $v['cnt'] }}
+																	<span>×</span>{{ $v->cnt }}
 																</div>
 															</li>
 															<li class="td td-operation">
@@ -189,33 +190,38 @@
 													<div class="order-right">
 														<li class="td td-amount">
 															<div class="item-amount">
-																合计：{{ $v['sum'] }}
-																<p>含运费：<span>10.00</span></p>
+																合计：{{ $v->sum }}
+																<p>含运费：<span>0.00</span></p>
 															</div>
 														</li>
 														<div class="move-right">
-															<li class="td td-status">
-																<div class="item-status">
-																	<p class="Mystatus">交易成功</p>
-																	<p class="order-info"><a href="orderinfo.html">订单详情</a></p>
-																	
-																</div>
-															</li>
-															<form action="/home/orders/{{ $v['id'] }}" method="post">
-																{{ csrf_field() }}
-																{{ method_field('DELETE') }}
-																<li class="td td-change">
-																	<button><div class="am-btn am-btn-danger anniu">
-																		删除订单</div></button>
-																</li>
-															</form>	
+															
+															<script>							
+																function del(id,obj){
+
+																		$.get('/home/ajaxorder',{'id':id},function(msg){
+																			// console.log(msg);
+																			if(msg == 'success'){
+																				obj.parentNode.parentNode.parentNode.parentNode.parentNode.remove();
+																			}else{
+																				alert('删除失败');
+																			}
+																		},'html');
+																	}
+											         		</script>
+																<a class="td td-change"  onclick="del('{{ $v->id }}',this)" >
+																	<button  onclick="return confirm('确定删除吗?')" class="am-btn am-btn-danger anniu">
+																		删除订单</button>
+
+																</a>
+															<!-- </form>	 -->
 														</div>
 													</div>
 												</div>
-												@endforeach
+											
 											</div>
 										</div>
-
+									@endforeach
 									</div>
 									
 								</div>
@@ -224,10 +230,32 @@
 						</div>
 					</div>
 				</div>
-				<script type="text/javascript">
-					
-				</script>
-				<!-- 底部 -->
+					<!-- <script>
+											function del(id,obj){
+
+													// $.get('/home/ajaxorder',{'id':id},function(msg){
+													// 	console.log(msg);return;
+													// 	if(msg == 'success'){
+													// 		obj.parentNode.parentNode.parentNode.parentNode.parentNode.remove();
+													// 	}else{
+													// 		alert('删除失败');
+													// 	}
+													// },'html');
+													$.ajax({
+														type:'get',
+														url:'/home/ajaxorder',
+														data:{'id':id},
+														datatype:'json',
+														async:true
+														success:function(msg){
+															console.log(msg);
+														}
+													})
+
+												}
+							</script> -->
+<!-- 
+				底部 -->
 				<div class="footer">
 					<div class="footer-hd">
 						<p>

@@ -102,7 +102,7 @@ class OrdersController extends Controller
         // 删除用户
         $res1 = Orders::destroy($id); 
         // 删除详情
-        $res2 = Ordersdetail::where('oid',$id)->delete();
+        $res2 = Ordersdetail::where('ooid',$id)->delete();
         if($res1 && $res2){
             //提交事务
             DB::commit();

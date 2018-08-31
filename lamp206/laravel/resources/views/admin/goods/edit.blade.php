@@ -39,7 +39,7 @@
                         <div class="mws-form-row" style="width: 630px">
                             <label class="mws-form-label">商品描述</label>
                             <div class="mws-form-item">
-                                <textarea rows="" cols="" class="large" name="gdesc" value="{{ $data['gdesc'] }}"></textarea>
+                                <textarea rows="" cols="" class="large" name="gdesc" value="{{ $data['gdesc'] }}">{{ $data['gdesc'] }}</textarea>
                             </div>
                         </div>
                         <div class="mws-form-row">

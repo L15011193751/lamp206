@@ -61,7 +61,7 @@
             <!--悬浮搜索框-->
 
             <div class="nav white">
-                <div class="logo"><img src="images/logo.png" /></div>
+                <div class="logo"><img src="" /></div>
                 <div class="logoBig">
                     <li><img src="/sy/images/201608221646389704980.png" /></li>
                 </div>
@@ -108,7 +108,7 @@
                     </div>
 
                     <div class="clear"></div>
-
+ 
                     <tr class="item-list">
                         <div class="bundle  bundle-last ">
                             <div class="bundle-hd">
@@ -121,7 +121,7 @@
                                 </div>
                             </div>
                             @foreach ($carts as $k => $v)
-                            
+                         
                             <div class="clear"></div>
                             <div class="bundle-main">
 
@@ -145,22 +145,23 @@
                                     </li>
                                     <li class="td td-info">
                                         <div class="item-props item-props-can">
-                                            <span class="sku-line">描述：{{ $v['gdesc'] }}</span>
+                                            <span class="sku-line">描述：{{ $v->gdesc }}</span>
                                             <span class="sku-line">包装：裸装</span>
                                             <!-- <span tabindex="0" class="btn-edit-sku theme-login">修改</span> -->
                                             <i class="theme-login am-icon-sort-desc"></i>
                                         </div>
                                     </li>
-                            <form action="/home/orders/create" method="get">
+                      
+
                                 <input type="hidden" name="gid" value="{$goods->gid}">
                                     <li class="td td-price">
                                         <div class="item-price price-promo-promo">
                                             <div class="price-content">
                                                 <div class="price-line">
-                                                    <em class="price-original">78.00</em>
+                                                    <em class="price-original">0.00</em>
                                                 </div>
                                                 <div class="price-line">
-                                                    <em class="J_Price price-now" tabindex="0">{{ $v['price'] }}</em>
+                                                    <em class="J_Price price-now" tabindex="0">{{ $v->price }}</em>
                                                 </div>
                                             </div>
                                         </div>
@@ -184,24 +185,30 @@
                                             小计 :<em tabindex="0" id="Money" class="J_ItemSum number">{{ $v['price']*$v['cnt'] }}</em>
                                         </div>
                                     </li>
-                                    <li class="td td-op">
-                                        <div class="td-inner">
-                                            <a title="移入收藏夹" class="btn-fav" href="#">
-                                                                 移入收藏夹</a>
-                                            <form action="/home/cart/{{ $v['id'] }}" method="post">
-                                                {{ csrf_field() }}
-                                                 {{ method_field('DELETE') }}
-                                                
-                                                <button type ="submit">删除</button>
-                                                
-                                            </form>
-                                            
-                                        </div>
+                                   <script>
+                                        function del(id,obj){
+
+                                        $.get("/home/ajaxcart",{'id':id},function(msg){
+                                            if(msg == 'success'){
+
+                                               obj.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.romove();
+                                            }else{
+                                                alert('删除失败');
+                                            }    
+                                        },'html');
+                                     }
+                                </script>
+                                    <li class="td td-op"> 
+                                             <a href="" onclick="del('{{ $v->id }}',this)">
+                                                  <button type ="submit" onclick="return confirm('确认要删除这个商品吗')">删除</button>
+                                             </a>                               
+                                        </div> 
                                     </li>
                                 </ul>       
                             </div>
                         </div>
                     </tr>
+
                     <div class="clear"></div>
                        
                 
@@ -238,10 +245,11 @@
                            
                                 <button type="submit " class="btn-area "><h2>结&nbsp;算</h2></button>  
                         </div>
-                        </form>
+    </form>
                     </div>
 
                 </div>
+
                 <script type="text/javascript">
                         
                         $('.jia_cart_btn').click(function(){
@@ -257,7 +265,7 @@
                         $('.jian_cart_btn').click(function(){
                             var price_nx = $(this).next().val();
                             if(price_nx <= 1){
-                                return alert('请先购买商品');
+                                return alert('这是最后一个商品了');
                             }else{
                                 $(this).next().val(--price_nx);
                                 var price = $(this).parent().parent().parent().parent().prev().find("em").eq(1).html();

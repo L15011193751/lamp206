@@ -21,10 +21,8 @@ class CartController extends Controller
         $cnt = 0;
         foreach ($carts as $k => $v)
         {
-            // 总净额
-            $sum += $v->price*$v->cnt;
-            // 总数量
-            $cnt += $v->cnt;
+            $sum += $v->price*$v->cnt;    // 总净额
+            $cnt += $v->cnt;              // 总数量
         }
         session()->push("orders.sum",$sum);
         $request->session()->forget('orders.sum');
@@ -53,19 +51,12 @@ class CartController extends Controller
      */
     public function store(Request $request)
     {
-         // 获取详情页的id 
-        $red = $request -> input('id');
-
-        // 获取数据库的id'
-        $data = Goods::find($red);
-        // 获取数量
-        $data->cnt = $request -> input('cnt'); 
-        
-        // 数据存入session 
-        session()->push('cart.id',$data);
-        // 数据存入session
-       
-        return redirect('/home/cart');
+          
+        $red = $request -> input('id');         // 获取详情页的id
+        $data = Goods::find($red);              // 获取数据库的id'
+        $data->cnt = $request -> input('cnt');  // 获取数量
+        session()->push('cart.id',$data);       // 数据存入session 
+        return redirect('/home/cart');          // 数据存入session
     }
 
     /**
@@ -108,13 +99,31 @@ class CartController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request, $id)
+    // public function destroy(Request $request, $id)
+    // {
+
+    //    $res = $request->session()->flush($id);
+    //     if ($res){
+    //         return redirect('home/cart/index')->with('success','删除成功');  
+    //     }else{
+    //         return back()->with('error','删除失败');
+    //     } 
+    // }
+
+    /**
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */ 
+    public function ajaxcart(Response $Response)
     {
-       $res = $request->session()->flush();
-        if ($res){
-            return redirect()->with('success','删除成功');  
+        $id = $Response -> input('id');
+        $res = $request->session()->forget($id);
+        if($res){
+            echo 'success';
         }else{
-            return back()->with('error','删除失败');
-        } 
-    }   
+            echo 'erroe';
+        }
+    }  
 }

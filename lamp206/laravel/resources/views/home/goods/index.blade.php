@@ -48,9 +48,11 @@
 			<!--悬浮搜索框-->
 
 			<div class="nav white">
-				<div class="logo"><img src="/home/images/logo.png" /></div>
+				<!-- <div class="logo"><img src="/home/images/logo.png" /></div> -->
 				<div class="logoBig">
-					<li><img src="/home/images/logobig.png" /></li>
+					<a href="/home/orders/show">
+							<img src="/sy/images/201608221646389704980.png">
+					</a>
 				</div>
 
 				<div class="search-bar pr">

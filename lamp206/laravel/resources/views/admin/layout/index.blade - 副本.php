@@ -40,20 +40,7 @@
 <link rel="stylesheet" type="text/css" href="/mws/css/themer.css" media="screen">
 <link rel="stylesheet" type="text/css" href="/mws/css/page_page.css">
 <title>MWS Admin - Form Elements</title>
-<style>
-    #div1{
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-    }
 
-    #div2{
-        width: 100%;
-        height: 100%;
-        overflow-wrap: break-word;
-        overflow-y:scroll;
-    }
-</style>
 </head>
 
 <body >
@@ -121,9 +108,8 @@
                     <button type="submit" class="mws-search-submit"><i class="icon-search"></i></button>
                 </form>
             </div>
-            <div id="div1">
-                <div id="div2">
-                     <!-- Main Navigation -->
+            
+            <!-- Main Navigation -->
             <div id="mws-navigation">
                 <ul>
                     
@@ -182,9 +168,6 @@
                 </ul>
             </div>
         </div>
-                </div>
-            </div>
-           
         
         <!-- Main Container Start -->
         <div id="mws-container" class="clearfix">

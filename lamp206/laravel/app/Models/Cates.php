@@ -12,11 +12,11 @@ class Cates extends Model
 
     protected $table='cate';
     protected $pk='id';
-<<<<<<< HEAD
+
     public $timestamps='false';
-=======
-    public $timestamps = false;
->>>>>>> origin/zhouguo
+
+    // public $timestamps = 'false';
+
 
     protected $fillable=[
      'cname','pid','path'

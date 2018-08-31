@@ -92,6 +92,6 @@ class GoodsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        echo 'dkcnv';
     }
 }

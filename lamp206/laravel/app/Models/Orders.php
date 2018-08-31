@@ -14,7 +14,7 @@ class Orders extends Model
  	//关联  订单详情
 	public function od()
 	{
-		return $this->hasOne('App\Models\Ordersdetail','oid');
+		return $this->hasOne('App\Models\Ordersdetail','ooid');
 	}
 
 }

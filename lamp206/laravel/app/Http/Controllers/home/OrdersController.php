@@ -35,27 +35,8 @@ class OrdersController extends Controller
      */
     public function create(Request $request)
     {  
-
-       // 获取购买商品
-        $order = Orders::get();
-
-        foreach($order as $k=>$v){
-          // 获取gid
-          $gid = $v->od->gid;
-        
-          $odata  =[];
-          // 查找单条数据
-          $data = Goods::find($gid);
-          
-                // 商品图片
-                $odata['gpic'] = $data->gpic;
-                // 商品图片
-                $odata['price'] = $data->price;
-                $odata['gname'] = $data->gname;
-                return view('home.orders.order',['order'=>$order,'odata'=>$odata]);
-        }  
-    }
-
+       
+        }
     
     /**
      * Store a newly created resource in storage.
@@ -65,39 +46,41 @@ class OrdersController extends Controller
      */
     public function store(OrderStoreRequest $request)
     {
-        DB::beginTransaction(); //开启事务
+        DB::beginTransaction();            //开启事务
          $sum = session("orders.sum");
          $cnt = session("orders.cnt");
         $red = date('YmdHis').mt_rand(1000,9999);
         $data = $request->all();
         $orders = new Orders;
+        // $orders->uid = $red;             //  uid
         $orders->oid = $red;
-        $orders ->rec = $data['rec'];  // 收货人
-        $orders ->addr = $data['addr'];// 收货地址
+        $orders ->rec = $data['rec'];       // 收货人
+        $orders ->addr = $data['addr'];     // 收货地址
         $orders ->phone =  $data['phone'];
         $orders ->umsg =  $data['umsg'];
         $orders ->SendDate =  $data['SendDate'];
         $orders ->ToDate =  $data['ToDate'];
-        $orders ->cnt = $cnt['0'];// 获取总金额  总数量
+        $orders ->cnt = $cnt['0'];          // 获取总金额  总数量
         $orders ->sum = $sum['0'];
-        $orders ->state =1; // 状态
-        $res1 = $orders -> save(); // 保存
-
+        $orders ->state =1;                 // 状态
+        $res1 = $orders -> save();          // 保存
+        
         $carts = session('cart.id');
         foreach($carts as $k => $v)
         {
             $ordesdetail = new Ordersdetail;
-            $ordesdetail ->oid = $orders->id;
-            $ordesdetail ->order_oid = $red;// 关联订单号 
-            $ordesdetail ->gid = $v['id']; // gid
-            $ordesdetail ->price = $v['price'];//  单价
-            $ordesdetail ->cnt = $v['cnt'];//  数量
+            $ordesdetail ->ooid = $orders->id;
+            $ordesdetail ->order_oid = $red;    // 关联订单号 
+            $ordesdetail ->gid = $v['id'];      // gid
+            $ordesdetail ->price = $v['price']; //  单价
+            $ordesdetail ->cnt = $v['cnt'];     //  数量
             $res2 =  $ordesdetail -> save();
-        }
+        }                                                           
+        $request->session()->flush();           //清楚session所有数据
         if($res1 && $res2){
-            DB::commit(); // 提交事务
+            DB::commit();                       // 提交事务
            return view('home.orders.index',['red'=> $red ,'sum'=>$sum]);
-        }else{              // 回滚事务
+        }else{                                  // 回滚事务
             DB::rollBack();
             return back()->with('error','添加失败');
         }
@@ -111,7 +94,31 @@ class OrdersController extends Controller
      */
     public function show($id)
     {
-        //
+        // $uid = session('homeUserInfo.uid');
+           $uid = 22;
+           $data = DB::table('users')
+               ->leftjoin('orders','orders.uid','=','users.id')
+               ->leftjoin('ordersdetail','orders.id','=','ordersdetail.ooid')
+               ->leftjoin('goods','goods.id','=','ordersdetail.gid')
+               ->where('users.id','=',$uid)
+               ->select('users.username','orders.*','ordersdetail.*','goods.gpic','goods.gname')
+               ->get();
+           
+            // foreach($data as $k=>$v){
+            //     $odata  =[];                     
+            //     $odata['order_oid'] = $v->order_oid;     // 订单详情表订单号
+            //     $odata['created_at'] = $v->created_at;   // 下单时间  
+            //     $odata['price'] = $v->price;             // 商品单价   
+            //     $odata['gpic'] = $v->gpic;               // goods图片路径
+            //     $odata['gname'] = $v->gname;             // goods商品名称   
+            //     $odata['sum'] = $v->sum;                 // 金额总和
+            //     $odata['cnt'] = $v->cnt;                 // 总个数
+            //     $odata['id'] = $v->id;                    
+            //     $odata['ooid'] = $v->ooid;            
+            //     $gid = $v->gid;                          // goods 的id
+            
+                    return view('home.orders.order',['data'=>$data]); 
+            // }
     }
 
     /**
@@ -146,19 +153,34 @@ class OrdersController extends Controller
     public function destroy($id)
     {     
         
-        DB::beginTransaction();//开启事务
-        // 删除用户
-        $res1 = Orders::destroy($id);
-        // 删除详情
-        $res2 = Ordersdetail::where('oid',$id)->delete();
+    //     DB::beginTransaction();                                       //开启事务
+    //     $res1 = Orders::destroy($id);                                 // 删除用户
+    //     $res2 = Ordersdetail::where('oid',$id)->delete();             // 删除详情
+    //     if($res1 && $res2){
+    //         DB::commit();
+    //         return redirect('home/orders/show')->with('success','删除成功');  //提交事务
+    //     }else{
+    //         DB::rollBack();
+    //         return back()->with('error','删除失败');                       //回滚事务
+    //      }     
+    } 
+
+    /**
+     * Remove the specified resource from storage.
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+
+    public function aorder(Request $request)
+    {
+        $id = $request->input('id'); 
+        dd($id);                       
+        $res1 = Orders::destroy($id);                       // 删除orders表订单        
+        $res2 = Ordersdetail::where('ooid',$id)->delete();  // 删除ordersdestroy表的详情
         if($res1 && $res2){
-            DB::commit();//提交事务
-             return redirect('/home/orders/order')->with('success','删除成功');
-         }else{
-            DB::rollBack();//回滚事务
-            return back()->with('error','删除失败');
-         }     
-
-
-    }       
+            echo 'success';
+        }else{
+            echo 'error';
+        }      
+    }
 }

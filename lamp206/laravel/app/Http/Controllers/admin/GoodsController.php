@@ -90,6 +90,7 @@ class GoodsController extends Controller
     {   
         // 查询单条
        $data = Goods::find($id);
+
        return view ('admin/goods/edit',['data'=>$data]);
 
     }

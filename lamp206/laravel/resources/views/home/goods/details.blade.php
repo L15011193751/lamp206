@@ -127,36 +127,7 @@
 
 <body>
 
-   <!--  <div style="width: 100%; height: 55px; position: fixed; bottom: 0; background-color: #d00236; z-index: 99;">
-        <div class="" style="width: 1200px; margin: 0 auto; height: 50px;">
-            <div style="float: left; margin-right: 0px; position: absolute; top: -10px">
-                <img src="picture/littila.png" alt="">
-            </div> -->
-            <!-- <div style="float: left;" class="btmul-li">
-                <ul>
-                    <li><a href="http://www7.53kf.com/webCompany.php?arg=10139947&amp;style=1&amp;kflist=off&amp;kf=23500853@qq.com,3314346980@qq.com,3270342009@qq.com,3544266363@qq.com,3263446264@qq.com&amp;zdkf_type=1&amp;language=zh-cn&amp;charset=gbk&amp;referer=http%3A%2F%2Fwww.ismei.net%2Fdefault.html&amp;keyword=&amp;tfrom=1&amp;tpl=crystal_blue&amp;timeStamp=1478502581960&amp;ucust_id=" target="_blank">在线下单多久能送到?</a></li>
-                    <li><a href="http://www7.53kf.com/webCompany.php?arg=10139947&amp;style=1&amp;kflist=off&amp;kf=23500853@qq.com,3314346980@qq.com,3270342009@qq.com,3544266363@qq.com,3263446264@qq.com&amp;zdkf_type=1&amp;language=zh-cn&amp;charset=gbk&amp;referer=http%3A%2F%2Fwww.ismei.net%2Fdefault.html&amp;keyword=&amp;tfrom=1&amp;tpl=crystal_blue&amp;timeStamp=1478502581960&amp;ucust_id=" target="_blank">过生日送什么花合适?</a></li>
-                    <li><a href="http://www7.53kf.com/webCompany.php?arg=10139947&amp;style=1&amp;kflist=off&amp;kf=23500853@qq.com,3314346980@qq.com,3270342009@qq.com,3544266363@qq.com,3263446264@qq.com&amp;zdkf_type=1&amp;language=zh-cn&amp;charset=gbk&amp;referer=http%3A%2F%2Fwww.ismei.net%2Fdefault.html&amp;keyword=&amp;tfrom=1&amp;tpl=crystal_blue&amp;timeStamp=1478502581960&amp;ucust_id=" target="_blank">表白送什么花?</a></li>
-                    <li><a style="color: #fcff00" href="http://www7.53kf.com/webCompany.php?arg=10139947&amp;style=1&amp;kflist=off&amp;kf=23500853@qq.com,3314346980@qq.com,3270342009@qq.com,3544266363@qq.com,3263446264@qq.com&amp;zdkf_type=1&amp;language=zh-cn&amp;charset=gbk&amp;referer=http%3A%2F%2Fwww.ismei.net%2Fdefault.html&amp;keyword=&amp;tfrom=1&amp;tpl=crystal_blue&amp;timeStamp=1478502581960&amp;ucust_id=" target="_blank">看望病人 送什么花好?</a></li>
-                    <li><a href="http://www7.53kf.com/webCompany.php?arg=10139947&amp;style=1&amp;kflist=off&amp;kf=23500853@qq.com,3314346980@qq.com,3270342009@qq.com,3544266363@qq.com,3263446264@qq.com&amp;zdkf_type=1&amp;language=zh-cn&amp;charset=gbk&amp;referer=http%3A%2F%2Fwww.ismei.net%2Fdefault.html&amp;keyword=&amp;tfrom=1&amp;tpl=crystal_blue&amp;timeStamp=1478502581960&amp;ucust_id=" target="_blank">送爱人什么花好?</a></li>
-                    <li><a style="color: #fcff00" href="http://www7.53kf.com/webCompany.php?arg=10139947&amp;style=1&amp;kflist=off&amp;kf=23500853@qq.com,3314346980@qq.com,3270342009@qq.com,3544266363@qq.com,3263446264@qq.com&amp;zdkf_type=1&amp;language=zh-cn&amp;charset=gbk&amp;referer=http%3A%2F%2Fwww.ismei.net%2Fdefault.html&amp;keyword=&amp;tfrom=1&amp;tpl=crystal_blue&amp;timeStamp=1478502581960&amp;ucust_id=" target="_blank">给长辈送什么花?</a></li>
-                    <li><a style="color: #fcff00" href="http://www7.53kf.com/webCompany.php?arg=10139947&amp;style=1&amp;kflist=off&amp;kf=23500853@qq.com,3314346980@qq.com,3270342009@qq.com,3544266363@qq.com,3263446264@qq.com&amp;zdkf_type=1&amp;language=zh-cn&amp;charset=gbk&amp;referer=http%3A%2F%2Fwww.ismei.net%2Fdefault.html&amp;keyword=&amp;tfrom=1&amp;tpl=crystal_blue&amp;timeStamp=1478502581960&amp;ucust_id=" target="_blank">朋友新店开业送什么花好?</a></li>
-                    <li><a href="http://www7.53kf.com/webCompany.php?arg=10139947&amp;style=1&amp;kflist=off&amp;kf=23500853@qq.com,3314346980@qq.com,3270342009@qq.com,3544266363@qq.com,3263446264@qq.com&amp;zdkf_type=1&amp;language=zh-cn&amp;charset=gbk&amp;referer=http%3A%2F%2Fwww.ismei.net%2Fdefault.html&amp;keyword=&amp;tfrom=1&amp;tpl=crystal_blue&amp;timeStamp=1478502581960&amp;ucust_id=" target="_blank">鲜花包月多少钱一月？</a></li>
-                    <li><a href="http://www7.53kf.com/webCompany.php?arg=10139947&amp;style=1&amp;kflist=off&amp;kf=23500853@qq.com,3314346980@qq.com,3270342009@qq.com,3544266363@qq.com,3263446264@qq.com&amp;zdkf_type=1&amp;language=zh-cn&amp;charset=gbk&amp;referer=http%3A%2F%2Fwww.ismei.net%2Fdefault.html&amp;keyword=&amp;tfrom=1&amp;tpl=crystal_blue&amp;timeStamp=1478502581960&amp;ucust_id=" target="_blank">普通异性朋友生日送什么花？</a></li>
-                    <li><a style="color: #fcff00" href="http://www7.53kf.com/webCompany.php?arg=10139947&amp;style=1&amp;kflist=off&amp;kf=23500853@qq.com,3314346980@qq.com,3270342009@qq.com,3544266363@qq.com,3263446264@qq.com&amp;zdkf_type=1&amp;language=zh-cn&amp;charset=gbk&amp;referer=http%3A%2F%2Fwww.ismei.net%2Fdefault.html&amp;keyword=&amp;tfrom=1&amp;tpl=crystal_blue&amp;timeStamp=1478502581960&amp;ucust_id=" target="_blank">乔迁绿植价格？</a></li>
-                    <li><a style="color: #fff; font-size: 14px;" href="http://www7.53kf.com/webCompany.php?arg=10139947&amp;style=1&amp;kflist=off&amp;kf=23500853@qq.com,3314346980@qq.com,3270342009@qq.com,3544266363@qq.com,3263446264@qq.com&amp;zdkf_type=1&amp;language=zh-cn&amp;charset=gbk&amp;referer=http%3A%2F%2Fwww.ismei.net%2Fdefault.html&amp;keyword=&amp;tfrom=1&amp;tpl=crystal_blue&amp;timeStamp=1478502581960&amp;ucust_id=" target="_blank"><strong>更多购花疑问快捷服务....</strong></a></li>
-                </ul>
-            </div> -->
-          <!--   <div style="float: right; margin-top: 8px;">
-                <ul style="padding-left: 0px;">
-                    <li style="float: left; margin-top: 5px; list-style-type: none; margin-right: 20px;"><a>
-                        <img src="picture/tel8.png"></a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
- -->
-
+  
 
     <div id="header" class="top">
         
@@ -201,7 +172,7 @@
             <div class="logo">
                 <div class="logo cssEdite" type="logo" id="logo_1">
 <a href="/">
-<img src="picture/201608221646389704980.png">
+<img src="/sy/images/201608221646389704980.png">
 </a>
 </div>
 
@@ -253,11 +224,13 @@
 
             </div>
             <div class="cart-box">
-                <form action="/home/orders/create/" method="get">
+              <!--   <form action="/home/orders/" method="get"> -->
                     <div class="cc_phone">
                    
-                        <img src="picture/phone.png">
-                        <button>订单查询</button>
+                        <a href="/home/orders/show">
+                            <span>订单查询</span>
+                        </a>
+                        
                     </a>
                 </div>
                 </form>
@@ -759,7 +732,7 @@
 
 
     <a name="top_name" id="top1"></a>
-    <div class="nav_info"><a href='/browse/category-1.html'>鲜花类型</a>>><a href='/browse/category-5.html'>鲜花花束</a>>>一生中挚爱  百合2枝，红玫瑰9枝</div>
+    <div class="nav_info"><a href='/browse/category-1.html'>鲜花类型</a>>><a href='/browse/category-5.html'>鲜花花束</a>一生中挚爱  百合2枝，红玫瑰9枝</div>
     <div class="product_intro">
         <div class="product_preview">
             
@@ -781,21 +754,21 @@
         <td>
             <div class="zoom-section">
                 <div class="zoom-section">
-                    <div class="zoom-small-image">
-                        <a id="zoom1" class="cloud-zoom" rel="adjustX:10, adjustY:-4" title="美丽的诺言-11枝红玫瑰,小熊" href="{{ $data['gpic'] }} ">
-                            <table cellspacing="0" cellpadding="0" border="0" width="100%" height="100%">
+                    <div class="zoom-small-image"  >
+                        <a id="zoom1" class="cloud-zoom" rel="adjustX:10, adjustY:-4" title="美丽的诺言-11枝红玫瑰,小熊" href="{{ $data['gpic'] }} " style="width: 410px;height: 410px">
+                            <table cellspacing="0" cellpadding="0" border="0" width="" height="">
                                 <tr>
                                     <td align="center" valign="middle">
-                                        <img id=""  style="width: 410px:height: 410px" title="Optional title display" src="{{ $data['gpic'] }}" border="0">
+                                        <img id=""  style="width: 410px;height: 410px" title="Optional title display" src="{{ $data['gpic'] }}" border="0">
                                     </td>
                                 </tr>
                             </table>
                         </a>
                     </div>
-                    <div class="zoom-desc">
-                        <p>
+                  <!--   <div class="zoom-desc">
+                        <p> -->
                            <!--  <a id="ProductDetails_common_ProductImages___iptPicUrl1" class="cloud-zoom-gallery" title="美丽的诺言-11枝红玫瑰,小熊" rel="useZoom: 'zoom1', smallImage: '/home/images/pro_description_tu.jpg'" href="/uploads/20180814/eDfyr0Z9g8nUXXyzxP7V.jpg                            "><img id="ProductDetails_common_ProductImages___imgSmall1" alt="Thumbnail 1" src="/uploads/20180814/eDfyr0Z9g8nUXXyzxP7V.jpg                            " border="0"></a> -->
-                             <a id="" class="cloud-zoom-gallery" title="美丽的诺言-11枝红玫瑰,小熊" rel="useZoom: 'zoom1', smallImage: '{{ $data['gpic'] }}'" href="{{ $data['gpic'] }}"><img style="width: 60px" alt="Thumbnail 1" src="{{ $data['gpic'] }}" border="0"></a>
+                            <!--  <a id="" class="cloud-zoom-gallery" title="美丽的诺言-11枝红玫瑰,小熊" rel="useZoom: 'zoom1', smallImage: '{{ $data['gpic'] }}'" href="{{ $data['gpic'] }}"><img style="width: 60px" alt="Thumbnail 1" src="{{ $data['gpic'] }}" border="0"></a>
 
                              <a id="" style="" class="cloud-zoom-gallery" title="美丽的诺言-11枝红玫瑰,小熊" rel="useZoom: 'zoom1', smallImage: '{{ $data['gpic'] }}'" href="{{ $data['gpic'] }}"><img style="width: 60px" alt="Thumbnail 1" src="{{ $data['gpic'] }}" border="0"></a>
 
@@ -807,7 +780,7 @@
                             
                             <a id="ProductDetails_common_ProductImages___iptPicUrl5" class="cloud-zoom-gallery" title=""></a>
                         </p>
-                    </div>
+                    </div> -->
                     </div>
                     
                 </div>

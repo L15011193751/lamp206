@@ -14,7 +14,7 @@
 <meta name="GENERATOR" content="2.2(kb21001)" />
 
     <title id='pageTitleName'>支付</title>
-
+    <script type="text/javascript" src="/sy/js/jquery.js"></script>
    
     <script type="text/javascript" src="/sy/js/jquery_1.js"></script>
     <script src="/sy/js/icheck.min_1.js"></script>
@@ -54,6 +54,7 @@
 }
 
 </style>
+
 </head>
 <body>
    
@@ -129,34 +130,33 @@
                 
 <ul >
     
-            <li>
-               
-                        
-                        <div class="pic" style="width: 220px; height: 60px; margin: 0 auto; "><img style="margin-top:10px;" src="/home/images/360截图16230312092109.png" alt="支付宝"><span>支付宝</span></div>
-                    <!-- </div> -->
+            <li>     
+                <div id="zhifubao" style="border: 1px solid #463E3E;height: 60px">
+                    <img  id="zhifubao"  style="margin-top:10px;" src="/home/images/360截图16230312092109.png" alt="支付宝">
+                 </div>  
+           
            </li>
-        
-            <li>
-               
-                    
-                        <div class="pic" style="width: 220px; height: 60px; margin: 0 auto; ">
-                            <a href="/home/orders/weixin" class="table-hover"><img style="margin-top:10px;" src="/home/images/360截图1623031479131114.png" alt="微信支付"><span>微信支付</span>
-                            </a>
-                        </div>
-                   
+            <li>    
+                 <div id="weixin" style="border: 1px solid #463E3E;height: 60px"> 
+                      <img  style="margin-top:10px;" src="/home/images/360截图16230313115116110.png" alt="微信支付">
+                 </div>   
            </li>
         
 </ul>
-<script type="text/javascript">
-    window.onload = function () {
-        $("li div a").click(function () {
-            alert("bhjghnbjj");
-            // $(".checkbox").css('border', '1px solid #D4D4D4');
-            // $(this).css('border', '3px solid #56bd54');
-            // $("#paymentModeId").val($(this).children(".checked").attr("key"));
-        });
-    }
-</script>
+                            <!-- 支付选中 -->
+                            <script type="text/javascript" >
+
+                                    // $("#zhifubao").click(function(){
+                                       // $("#zhifubao").css('background','red');
+                                    // });  
+                                                          
+                                    // $("#weixin").click(function(){
+                                       // $("#weixin").css('background','red');
+                                    // });
+                                    // 
+                                    
+
+                            </script>
 
                 <div class="submit1"><input type="submit" name="FinishOrder$btnOrderPay" value="立即支付" onclick="return checkPayment();" id="FinishOrder_btnOrderPay" class="core_order_pay_sub"></div>
             </div>
