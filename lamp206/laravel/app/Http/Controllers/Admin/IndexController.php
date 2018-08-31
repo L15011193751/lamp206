@@ -17,6 +17,8 @@ class IndexController extends Controller
     public function index()
     {
         return view('admin.index.index');
+
+        
     }
 
     /**
@@ -57,9 +59,10 @@ class IndexController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request,$id)
     {
-        //
+        // $password=User::find($id)->password;
+        return view('admin.index.edit',['user'=>$user,'title'=>'修改密码']);
     }
 
     /**
@@ -71,7 +74,7 @@ class IndexController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        echo '111';
     }
 
     /**

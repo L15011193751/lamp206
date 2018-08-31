@@ -20,11 +20,22 @@ class OrdersController extends Controller
      */
     public function index()
     {
+<<<<<<< HEAD
         
         $carts = session('cart.id');
         $sum = session("orders.sum");
       
        return view('home/orders/settlement',['carts'=>$carts,'sum'=>$sum]);
+=======
+        //订单管理
+        return view('home.orders.index');
+    }
+
+    public function orderinfo()
+    {
+        //订单详情
+        return view('home.orders.orderinfo');
+>>>>>>> origin/zz2544462508
     }
 
 

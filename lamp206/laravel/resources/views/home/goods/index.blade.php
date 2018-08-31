@@ -13,6 +13,7 @@
 		<link href="/home/basic/css/demo.css" rel="stylesheet" type="text/css" />
 
 		<link href="/home/css/seastyle.css" rel="stylesheet" type="text/css" />
+		<link rel="stylesheet" type="text/css" href="/home/css/page_page.css" />
 
 		<script type="text/javascript" src="/home/basic/js/jquery-1.7.min.js"></script>
 		<script type="text/javascript" src="/home/js/script.js"></script>
@@ -56,8 +57,8 @@
 				</div>
 
 				<div class="search-bar pr">
-					<a name="index_none_header_sysc" href="#"></a>
-					<form>
+					<a name="gname" href="#"></a>
+					<form action="/home/goods/index" method="get">
 						<input id="" name="gname" type="text" placeholder="搜索" autocomplete="off">
 						<input id="ai-topsearch" class="submit am-btn"  value="搜索" index="1" type="submit">
 					</form>
@@ -213,12 +214,19 @@
 											<p class="number fl">
 												销量<span>{{ $v['ent'] }}</span>
 											</p>
-
+											<p class="gname">
+												名称:<span>{{ $v['gname'] }}</span>
+											</p>		
 										</div>
 									</li>
 									@endforeach
 								</ul>
+								 <div class="page_page">
+                                    {!! $data->appends($request)->render() !!}
+                                </div>
 							</div>
+							
+
 							<div class="search-side">
 
 								<div class="side-title">
@@ -242,6 +250,7 @@
 								<li>
 									<div class="i-pic check">
 										<img src="/home/images/20160817164500_6689.png" />
+<<<<<<< HEAD
 										<p class="check-title">3F生日鲜花</p>
 										
 									</div>
@@ -251,22 +260,13 @@
 										<img src="/home/images/20160822174258_5826.png" />
 										<p class="check-title">4F礼盒鲜花</p>
 										
+=======
+										<p class="check-title">2F生日鲜花</p>
+>>>>>>> origin/zz2544462508
 									</div>
 								</li>
 							</div>
-
-							<div class="clear"></div>
-							<!--分页 -->
-							<ul class="am-pagination am-pagination-right">
-								<li class="am-disabled"><a href="#">&laquo;</a></li>
-								<li class="am-active"><a href="#">1</a></li>
-								<li><a href="#">2</a></li>
-								<li><a href="#">3</a></li>
-								<li><a href="#">4</a></li>
-								<li><a href="#">5</a></li>
-								<li><a href="#">&raquo;</a></li>
-							</ul>
-
+ 
 						</div>
 					</div>
 					<div class="footer">

@@ -44,7 +44,7 @@
                                         <td>{{ $v['id'] }}</td>
                                         <td><img src="{{ $v['gpic'] }}" style="width: 120px"></td>
                                         <td>{{ $v['gname'] }}</td>
-                                        <td>{{ $v['gdesc'] }}</td>
+                                        <td><div style=" width:30px;height:30px;overflow:hidden">{{ $v['gdesc'] }}</div></td>
                                         <td>{{ $v['price'] }}</td>
                                         <td>{{ $v['stock'] }}</td>
                                         <td>{{ $v['ent'] }}</td>

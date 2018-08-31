@@ -10,4 +10,6 @@ class Goods extends Model
     public $table = 'goods';
     // 设置模型的主键
     public $primaryKey = 'id';
+
+
 }
