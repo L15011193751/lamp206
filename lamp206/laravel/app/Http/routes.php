@@ -75,9 +75,6 @@ Route::resource('/admin/orders','Admin\OrdersController');
 
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
    
 //前台路由
 //前台首页
