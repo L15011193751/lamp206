@@ -16,7 +16,14 @@ class OrdersController extends Controller
      */
     public function index()
     {
+        //订单管理
+        return view('home.orders.index');
+    }
 
+    public function orderinfo()
+    {
+        //订单详情
+        return view('home.orders.orderinfo');
     }
 
     /**

@@ -12,6 +12,7 @@ use App\User;
 use Code;
 use App\Http\Requests\LoginPostRequest;
 
+
 class LoginController extends Controller
 {
     //显示一个登录表单
@@ -43,35 +44,71 @@ class LoginController extends Controller
 
     public function dologin(LoginPostRequest $request)
     {
-        $data = $request -> all();
-        $name = User::all('username');
-         // dump($data['password']);
-         // exit;
-        $names = [];
-        foreach ($name as $key => $value) {
-            array_push($names,$value->username);
+        // echo '111';
+        // $user = new User;
+        // $uname=$user->all('username');
+
+        // $username=$request->all();
+        $res=$request->except('_token');
+        $uname=User::where('username',$res['username'])->first();
+        if(!$uname){
+            return back()->with('error','用户名和密码不能为空');
+       }
+
+        if($res['password']!=$uname->password){
+        //如果说密码失败
+            return back()->with('error','用户名或密码不正确');
+       }
+
+        if($uname['auth'] != 2)
+        {
+            return back()->with('error','您没有管理员权限') -> withInput();
         }
-        $res = in_array($data['username'], $names);
-        //dump($res);
-        if($res){
-            $passwords = User::where('username','=',$data['username'])->first(); 
-            //dump($passwords['password']);
-        }else{
-            return back()->with('error','用户名错误');
-        }
-        if($data['upwd'] == $passwords['password']){
-            $sess = $data['username'];
-            session(['key' => $sess]);
-            return redirect('admin/index/index');
-        }else{
-            return back()->with('error','密码错误');
-        }
+
+
+        session(['id'=>$uname->id]);
+      
+      session(['uname'=>$uname->username]);
+    
+
+
+     return redirect('/admin/index');
+
+
+        // dd($username);
+        // // dump($uname);
+       
+        // $password=$request->input('password');
+        // $names=[];
+        // foreach ($uname as $key => $value) {
+        //     array_push($names,$value->username);
+        // }
+        // // dump($names);
+        // $res = in_array($username,$names);
+        // // dump($res);
+        // if($res){
+        //         $pass=User::where('username','=',$username)->first();
+        //         // dump($pass);
+                
+
+
+        //    }else{
+        //         return back()->with('error','用户名填写错误');
+        //    }   
+        // if($pass['password'] == $password){
+        //     // $sess=$username['username'];
+        //     session(['key' => "$username"]);
+        // // dd(session);
+        //     return redirect('/admin')->with('success','登陆成功');
+        // }else{
+        //     return back()->with('error','密码填写错误');
+        // }
     }
 
 
-    public function getOut()
+    public function loginout()
     {
-        session(['key'=>'']);
-        return view('admin.login');
+        session(['uname'=>'']);
+        return view('/admin/login/login');
     }
 }

@@ -42,7 +42,9 @@
                       <td>{{ $v->userdetail->phone }}</td>
                       <td>{{ $v->status == 1 ? '激活' : '未激活'}}</td>
                       <td>
-                      	<a href="" class="btn btn-warning">修改</a>
+                      	<a href="/admin/user/{{ $v->id }}/edit" class="btn btn-warning">修改</a>
+                              {{ csrf_field() }}
+                              {{ method_field('PUT') }}
                           <form action="/admin/user/{{ $v->id }}" method="post" style="display: inline;">
                               {{ csrf_field() }}
                               {{ method_field('delete') }}

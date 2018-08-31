@@ -35,6 +35,7 @@
     <link rel="stylesheet" type="text/css" href="/sy/css/nav.css">
     <link rel="stylesheet" href="/sy/css/style.css" type="text/css" media="">
     <link rel="stylesheet" href="/sy/css/menu.css" type="text/css" media="">
+    <link href="/home/css/page_page.css" rel="stylesheet" type="text/css" />
     <link href="/sy/css/iconfont.css" rel="Stylesheet">
     <link rel="stylesheet" href="/sy/css/region.css" type="text/css" media="">
     <style type="text/css">

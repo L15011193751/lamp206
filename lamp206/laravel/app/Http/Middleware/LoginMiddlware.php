@@ -16,7 +16,7 @@ class LoginMiddlware
     public function handle($request, Closure $next)
     {
          // 检测用户是否登录
-             if($request->session()->has('key')){
+             if(session('uname')){
               
                  return $next($request);//通过  执行下一次请求
              }else{

@@ -13,7 +13,7 @@
 		<link href="/home/basic/css/demo.css" rel="stylesheet" type="text/css" />
 
 		<link href="/home/css/seastyle.css" rel="stylesheet" type="text/css" />
-		<link href="/home/css/page_page.css" rel="stylesheet" type="text/css" />
+		<link rel="stylesheet" type="text/css" href="/home/css/page_page.css" />
 
 		<script type="text/javascript" src="/home/basic/js/jquery-1.7.min.js"></script>
 		<script type="text/javascript" src="/home/js/script.js"></script>
@@ -55,8 +55,8 @@
 				</div>
 
 				<div class="search-bar pr">
-					<a name="index_none_header_sysc" href="#"></a>
-					<form>
+					<a name="gname" href="#"></a>
+					<form action="/home/goods/index" method="get">
 						<input id="" name="gname" type="text" placeholder="搜索" autocomplete="off">
 						<input id="ai-topsearch" class="submit am-btn"  value="搜索" index="1" type="submit">
 					</form>
@@ -213,15 +213,18 @@
 												销量<span>{{ $v['ent'] }}</span>
 											</p>
 											<p class="gname">
-												名称<span>{{ $v['gname'] }}</span>	
+												名称:<span>{{ $v['gname'] }}</span>
 											</p>		
 										</div>
 									</li>
 									@endforeach
-									
 								</ul>
-								
+								 <div class="page_page">
+                                    {!! $data->appends($request)->render() !!}
+                                </div>
 							</div>
+							
+
 							<div class="search-side">
 
 								<div class="side-title">
@@ -238,30 +241,9 @@
 									<div class="i-pic check">
 										<img src="/home/images/20160817164500_6689.png" />
 										<p class="check-title">2F生日鲜花</p>
-										
 									</div>
 								</li>
-								<li>
-									<div class="i-pic check">
-										<img src="/home/images/cp.jpg" />
-										<p class="check-title">萨拉米 1+1小鸡腿</p>
-										<p class="price fl">
-											<b>¥</b>
-											<strong>29.90</strong>
-										</p>
-										<p class="number fl">
-											销量<span>1110</span>
-										</p>
-									</div>
-								</li>
-
 							</div>
-
-							<div class="page_page"></div>
-							<!--分页 -->
-							<ul class="pagination">
-								{!! $data->render() !!}
-							</ul>
  
 						</div>
 					</div>

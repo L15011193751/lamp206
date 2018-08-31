@@ -1,7 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
 
-	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
@@ -15,11 +12,20 @@
 		<link href="/home/css/hmstyle.css" rel="stylesheet" type="text/css"/>
 		<link href="/home/css/skin.css" rel="stylesheet" type="text/css" />
 		<link rel="stylesheet" type="text/css" href="/home/css/page_page.css" />
-		
+		<link href="/home/AmazeUI-2.4.2/assets/css/admin.css" rel="stylesheet" type="text/css">
+		<link href="/home/AmazeUI-2.4.2/assets/css/amazeui.css" rel="stylesheet" type="text/css">
+
+		<link href="/home/css/personal.css" rel="stylesheet" type="text/css">
+		<link href="/home/css/infstyle.css" rel="stylesheet" type="text/css">
+		<script src="/home/AmazeUI-2.4.2/assets/js/jquery.min.js" type="text/javascript"></script>
+		<script src="/home/AmazeUI-2.4.2/assets/js/amazeui.js" type="text/javascript"></script>
 		<script src="/home/AmazeUI-2.4.2/assets/js/jquery.min.js"></script>
 		<script src="/home/AmazeUI-2.4.2/assets/js/amazeui.min.js"></script>
-		
-	</head>
+		<link href="/home/AmazeUI-2.4.2/assets/css/admin.css" rel="stylesheet" type="text/css">
+		<link href="/home/AmazeUI-2.4.2/assets/css/amazeui.css" rel="stylesheet" type="text/css">
+		<link href="/home/css/personal.css" rel="stylesheet" type="text/css">
+		<link href="/home/css/systyle.css" rel="stylesheet" type="text/css">
+
 
 	<body>
 		<div class="hmtop">
@@ -118,7 +124,13 @@
 						</div>					
 		        </div>
 		    </div>
+<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=0">
 
+		<title>个人资料</title>
+
+		
+			
 		
 
 
@@ -128,3 +140,24 @@
 	</body>
 
 </html>
+<div class="container">
+                
+                @if(session('success'))
+                <!-- 读取跳转信息 -->
+                <div class="mws-form-message success">
+                     {{ session('success') }}                   
+                </div>
+                @endif
+
+                @if(session('error'))
+                <div class="mws-form-message error">
+                     {{ session('error') }}                   
+                </div>
+                @endif
+
+                @section('container')
+                
+
+                @show
+
+            </div>
