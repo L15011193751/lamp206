@@ -105,8 +105,8 @@ class OrdersController extends Controller
      */
     public function show($id)
     {
-        // $uid = session('homeUserInfo.uid');
-           $uid = 22;
+        $uid = session('homeUserInfo.uid');
+           // $uid = 22;
            $data = DB::table('users')
                ->leftjoin('orders','orders.uid','=','users.id')
                ->leftjoin('ordersdetail','orders.id','=','ordersdetail.ooid')
@@ -115,21 +115,9 @@ class OrdersController extends Controller
                ->select('users.username','orders.*','ordersdetail.*','goods.gpic','goods.gname')
                ->get();
            
-            // foreach($data as $k=>$v){
-            //     $odata  =[];                     
-            //     $odata['order_oid'] = $v->order_oid;     // 订单详情表订单号
-            //     $odata['created_at'] = $v->created_at;   // 下单时间  
-            //     $odata['price'] = $v->price;             // 商品单价   
-            //     $odata['gpic'] = $v->gpic;               // goods图片路径
-            //     $odata['gname'] = $v->gname;             // goods商品名称   
-            //     $odata['sum'] = $v->sum;                 // 金额总和
-            //     $odata['cnt'] = $v->cnt;                 // 总个数
-            //     $odata['id'] = $v->id;                    
-            //     $odata['ooid'] = $v->ooid;            
-            //     $gid = $v->gid;                          // goods 的id
             
-                    return view('home.orders.order',['data'=>$data]); 
-            // }
+                return view('home.orders.order',['data'=>$data]); 
+            
     }
 
     /**

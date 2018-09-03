@@ -39,7 +39,7 @@
 <link rel="stylesheet" type="text/css" href="/mws/css/mws-theme.css" media="screen">
 <link rel="stylesheet" type="text/css" href="/mws/css/themer.css" media="screen">
 <link rel="stylesheet" type="text/css" href="/mws/css/page_page.css">
-<title>MWS Admin - Form Elements</title>
+<title>鲜花网后台</title>
 <style>
     #div1{
         width: 100%;
@@ -57,8 +57,6 @@
 </head>
 
 <body >
-
-
     <!-- Header -->
     <div id="mws-header" class="clearfix">
     
@@ -67,7 +65,7 @@
         
             <!-- Logo Wrapper, images put within this wrapper will always be vertically centered -->
             <div id="mws-logo-wrap">
-                <img src="/mws/images/mws-logo.png" alt="mws admin">
+                <img src="/mws/images/u=2425398745,1762620380&fm=26&gp=0.jpg" alt="mws admin">
             </div>
         </div>
         
@@ -118,12 +116,12 @@
             </div>
             
             <!-- Searchbox -->
-            <div id="mws-searchbox" class="mws-inset">
+            <!-- <div id="mws-searchbox" class="mws-inset">
                 <form action="typography.html">
                     <input type="text" class="mws-search-input" placeholder="Search...">
                     <button type="submit" class="mws-search-submit"><i class="icon-search"></i></button>
                 </form>
-            </div>
+            </div> -->
             <div id="div1">
                 <div id="div2">
                      <!-- Main Navigation -->
@@ -176,7 +174,7 @@
             <div id="mws-navigation">
                 <ul>
                     <li>
-                        <a href="#"><i class="icon-database"></i>订单管理</a>
+                        <a href="#"><i class="icon-list-2"></i>订单管理</a>
                         <ul>
                             <li><a href="/admin/orders/">修改订单</a></li>
                             <li><a href="/admin/orders/">浏览订单</a></li>
